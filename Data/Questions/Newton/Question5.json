@@ -1,0 +1,22 @@
+{
+  "value": 500,
+  "question": "What average net force is required to accelerate a car with a mass of 1200 kg from 0 to 27.0 m/s in 10.0 s?",
+  "answers": [
+    {
+      "answer": "3240 N",
+      "correct": false
+    },
+    {
+      "answer": "1620 N",
+      "correct": false
+    },
+    {
+      "answer": "4360 N",
+      "correct": false
+    },
+    {
+      "answer": "444 N",
+      "correct": false
+    }
+  ]
+}

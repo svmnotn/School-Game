@@ -1,0 +1,22 @@
+{
+  "value": 500,
+  "question": "A girl kicks a soccer ball with an initial velocity of 25 m/s at an angle of 30° above the horizontal. The horizontal component of the velocity of the ball is described by one of the following statements.",
+  "answers": [
+    {
+      "answer": "It remains constant during the ball's flight",
+      "correct": false
+    },
+    {
+      "answer": "It increases uniformly",
+      "correct": false
+    },
+    {
+      "answer": "It is 25 m/s",
+      "correct": false
+    },
+    {
+      "answer": "It decreases uniformly",
+      "correct": false
+    }
+  ]
+}

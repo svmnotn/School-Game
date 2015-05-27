@@ -1,0 +1,22 @@
+{
+  "value": 100,
+  "question": "A ball drops some distance and gains 30 J of kinetic energy. Do not ignore air resistance. How much gravitational potential energy did the ball lose?",
+  "answers": [
+    {
+      "answer": "more than 30 J",
+      "correct": false
+    },
+    {
+      "answer": "exactly 30 J",
+      "correct": false
+    },
+    {
+      "answer": "less than 30 J",
+      "correct": false
+    },
+    {
+      "answer": "Cannot be determined from the information given",
+      "correct": false
+    }
+  ]
+}

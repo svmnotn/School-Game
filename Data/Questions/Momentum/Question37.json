@@ -1,0 +1,22 @@
+{
+  "value": 1000,
+  "question": "A 0.140-kg baseball is dropped from rest from a height of 2.00 m above the ground. What is the magnitude of its momentum just before it hits the ground? ",
+  "answers": [
+    {
+      "answer": "0.877 kg.m/s",
+      "correct": false
+    },
+    {
+      "answer": "0.280 kg.m/s",
+      "correct": false
+    },
+    {
+      "answer": "0.37 kg.m/s",
+      "correct": false
+    },
+    {
+      "answer": "0.620 kg.m/s",
+      "correct": false
+    }
+  ]
+}

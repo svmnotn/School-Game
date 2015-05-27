@@ -1,0 +1,22 @@
+{
+  "value": 100,
+  "question": "The source of the Sun's energy is ",
+  "answers": [
+    {
+      "answer": "fusion",
+      "correct": false
+    },
+    {
+      "answer": "fission",
+      "correct": false
+    },
+    {
+      "answer": "radioactivity ",
+      "correct": false
+    },
+    {
+      "answer": "ionization ",
+      "correct": false
+    }
+  ]
+}

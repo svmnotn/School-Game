@@ -1,0 +1,22 @@
+{
+  "value": 100,
+  "question": "A 500-kg cannon fires a 4.0-kg projectile with a velocity of 500 m/s relative to the ground. What is the recoil speed of the cannon? ",
+  "answers": [
+    {
+      "answer": "-4.0 m/s",
+      "correct": false
+    },
+    {
+      "answer": "4.0 m/s",
+      "correct": false
+    },
+    {
+      "answer": "-500.0 m/s",
+      "correct": false
+    },
+    {
+      "answer": "5.0 m/s",
+      "correct": false
+    }
+  ]
+}

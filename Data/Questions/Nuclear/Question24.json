@@ -1,0 +1,22 @@
+{
+  "value": 100,
+  "question": "A fission reaction in which more neutrons are given off than are needed to initiate a reaction is called ",
+  "answers": [
+    {
+      "answer": "a chain reaction",
+      "correct": false
+    },
+    {
+      "answer": "a chemical reaction",
+      "correct": false
+    },
+    {
+      "answer": "a critical reaction",
+      "correct": false
+    },
+    {
+      "answer": "a fusion reaction",
+      "correct": false
+    }
+  ]
+}

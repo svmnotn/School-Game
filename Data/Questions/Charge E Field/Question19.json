@@ -1,0 +1,22 @@
+{
+  "value": 500,
+  "question": "The charge carried by one electron is e = -1.6 × 10-19 C.  The number of electrons necessary to produce a charge of -1.0 C is ",
+  "answers": [
+    {
+      "answer": "0.3 × 1018",
+      "correct": false
+    },
+    {
+      "answer": "0.6 × 1019",
+      "correct": false
+    },
+    {
+      "answer": "0.3 × 109",
+      "correct": false
+    },
+    {
+      "answer": "0.6 × 109",
+      "correct": false
+    }
+  ]
+}

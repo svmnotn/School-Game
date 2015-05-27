@@ -1,0 +1,30 @@
+{
+  "background": true,
+  "rightEffect": true,
+  "wrongEffect": true,
+  "waitForAnswer": 60,
+  "waitAfterAnswer": 5,
+  "waitForScore": 5,
+  "waitForGameOver": 8,
+  "backgroundMusic": "~Jeopardy_Think_Music.wav",
+  "rightMusic": "~Correct_Answer.wav",
+  "wrongMusic": "~Incorrect_Answer.wav",
+  "backgroundColorR": 0.5,
+  "backgroundColorG": 0.5,
+  "backgroundColorB": 0.5,
+  "timerColorR": 1.0,
+  "timerColorG": 0.921568632,
+  "timerColorB": 0.0156862754,
+  "blue": {
+    "name": "Blue Team",
+    "nameColorR": 0.0,
+    "nameColorG": 0.0,
+    "nameColorB": 1.0
+  },
+  "red": {
+    "name": "Red Team",
+    "nameColorR": 1.0,
+    "nameColorG": 0.0,
+    "nameColorB": 0.0
+  }
+}

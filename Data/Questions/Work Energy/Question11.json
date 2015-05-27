@@ -1,0 +1,22 @@
+{
+  "value": 1000,
+  "question": "An object of 1.0 kg mass is pulled up an inclined plane by a constant force of 10 N that causes a displacement of 0.50 m. The angle of inclination with the horizontal is 30°. Neglect friction and use g = 10 m/s^2. What is the work done by the net force on the object along the inclined plane? ",
+  "answers": [
+    {
+      "answer": "3 J ",
+      "correct": false
+    },
+    {
+      "answer": "4.3 J ",
+      "correct": false
+    },
+    {
+      "answer": "5 J ",
+      "correct": true
+    },
+    {
+      "answer": "0.5 J",
+      "correct": false
+    }
+  ]
+}

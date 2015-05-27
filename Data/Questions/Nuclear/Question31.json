@@ -1,0 +1,22 @@
+{
+  "value": 100,
+  "question": "A moderator is inserted into a fission reaction ",
+  "answers": [
+    {
+      "answer": "to absorb neutrons and prevent additional fissions",
+      "correct": false
+    },
+    {
+      "answer": "to start the nuclear reaction",
+      "correct": false
+    },
+    {
+      "answer": "to absorb the heat released during the reaction",
+      "correct": false
+    },
+    {
+      "answer": "to stop a chain reaction",
+      "correct": false
+    }
+  ]
+}

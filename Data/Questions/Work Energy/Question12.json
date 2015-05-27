@@ -1,0 +1,22 @@
+{
+  "value": 500,
+  "question": "A 220-kg object is lifted at a constant speed through a height of 42 m by a crane. If the crane takes a total time of 1.8 seconds to lift this object, what is the average power required? Use g = 10 m/s^2. ",
+  "answers": [
+    {
+      "answer": "100 kW ",
+      "correct": false
+    },
+    {
+      "answer": "0.5 kW ",
+      "correct": false
+    },
+    {
+      "answer": "5 kW ",
+      "correct": false
+    },
+    {
+      "answer": "50 kW ",
+      "correct": true
+    }
+  ]
+}

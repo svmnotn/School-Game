@@ -1,0 +1,22 @@
+{
+  "value": 100,
+  "question": "A force of 120 N is applied to an object whose mass is 30 kg. The object's acceleration is ",
+  "answers": [
+    {
+      "answer": "4.0 m/s^2",
+      "correct": false
+    },
+    {
+      "answer": "2.0 m/s^2",
+      "correct": false
+    },
+    {
+      "answer": "3600 m/s^2",
+      "correct": false
+    },
+    {
+      "answer": "0.25 m/s^2",
+      "correct": false
+    }
+  ]
+}

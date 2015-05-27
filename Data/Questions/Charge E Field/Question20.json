@@ -1,0 +1,22 @@
+{
+  "value": 2000,
+  "question": "Two point charges of +40.0 C and -10.0 C are separated by a distance of 20.0 cm. A +7.00 C charge is placed midway between these two charges. What is the electric force acting on this charge because of the other two charges? ",
+  "answers": [
+    {
+      "answer": "15 N directed towards the negative charge",
+      "correct": false
+    },
+    {
+      "answer": "15 N directed towards the positive charge",
+      "correct": false
+    },
+    {
+      "answer": "45 N directed towards the negative charge",
+      "correct": false
+    },
+    {
+      "answer": "25 N directed towards the negative charge",
+      "correct": false
+    }
+  ]
+}

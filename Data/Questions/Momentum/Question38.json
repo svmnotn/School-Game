@@ -1,0 +1,22 @@
+{
+  "value": 100,
+  "question": "Two ice skaters push off against one another starting from a stationary position. The 45-kg skater acquires a speed of 0.375 m/s. What speed does the 60-kg skater acquire? ",
+  "answers": [
+    {
+      "answer": "0.281 m/s",
+      "correct": false
+    },
+    {
+      "answer": "0.500 m/s",
+      "correct": false
+    },
+    {
+      "answer": "0.750 m/s",
+      "correct": false
+    },
+    {
+      "answer": "0 .4 m/s",
+      "correct": false
+    }
+  ]
+}

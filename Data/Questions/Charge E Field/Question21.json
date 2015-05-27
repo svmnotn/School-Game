@@ -1,0 +1,22 @@
+{
+  "value": 100,
+  "question": "Two point charges of magnitudes +5.00 μC, and +7.00 μC are placed along the x-axis at x = 0 cm and x = 100 cm, respectively. Where must a third charge be placed along the x-axis so that it does not experience any net force because of the other two charges? ",
+  "answers": [
+    {
+      "answer": "5.8 cm",
+      "correct": false
+    },
+    {
+      "answer": "4.12 cm",
+      "correct": false
+    },
+    {
+      "answer": "1.2 cm",
+      "correct": false
+    },
+    {
+      "answer": "8.58 cm",
+      "correct": false
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "value": 1000,
+  "question": "A person throws a ball horizontally from the top of a building that is 40.0 m high. The initial velocity of the ball is 100 m/s. What is the horizontal distance that the ball travels before hitting the ground? ",
+  "answers": [
+    {
+      "answer": "286 m",
+      "correct": false
+    },
+    {
+      "answer": "572 m",
+      "correct": false
+    },
+    {
+      "answer": "367 m",
+      "correct": false
+    },
+    {
+      "answer": "325 m",
+      "correct": false
+    }
+  ]
+}

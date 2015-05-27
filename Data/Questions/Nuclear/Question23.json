@@ -1,0 +1,22 @@
+{
+  "value": 100,
+  "question": "Won the Nobel Price in 1905 for the Photoelectric Effect",
+  "answers": [
+    {
+      "answer": "Albert Einstein",
+      "correct": false
+    },
+    {
+      "answer": "Nikola Tesla",
+      "correct": false
+    },
+    {
+      "answer": "Feyman",
+      "correct": false
+    },
+    {
+      "answer": "Rutherford",
+      "correct": false
+    }
+  ]
+}
