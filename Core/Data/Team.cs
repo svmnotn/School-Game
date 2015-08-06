@@ -2,8 +2,8 @@
   using System.Drawing;
 
   public class Team {
-    string name;
-    Color color;
-    Font font;
+    public string name;
+    public Color color;
+    public Font font;
   }
 }

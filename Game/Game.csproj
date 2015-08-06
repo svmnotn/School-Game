@@ -127,12 +127,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Utils\Fullscreen.cs" />
-    <EmbeddedResource Include="UI\MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Splash.resx">
-      <DependentUpon>Splash.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Sound.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -159,9 +153,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SchoolGame\SchoolGame.csproj">
+    <ProjectReference Include="..\Core\Core.csproj">
       <Project>{b66d2bab-cee0-4247-aac2-f40b2119bfef}</Project>
-      <Name>SchoolGame</Name>
+      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

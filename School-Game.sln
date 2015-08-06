@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGCC", "SGCC\SGCC.csproj", 
 		{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF} = {B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolGame", "SchoolGame\SchoolGame.csproj", "{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

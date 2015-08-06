@@ -2,7 +2,7 @@
   using Questions = System.Collections.Generic.IDictionary<int, Question>;
 
   public class Topic {
-    string name;
-    Questions questions;
+    public string name;
+    public Questions questions;
   }
 }
