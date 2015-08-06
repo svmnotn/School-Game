@@ -8,16 +8,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SchoolGame.Properties {
+namespace SchoolGame.Game.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
-    internal sealed partial class Team1 : global::System.Configuration.ApplicationSettingsBase {
+    internal sealed partial class Team2 : global::System.Configuration.ApplicationSettingsBase {
         
-        private static Team1 defaultInstance = ((Team1)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Team1())));
+        private static Team2 defaultInstance = ((Team2)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Team2())));
         
-        public static Team1 Default {
+        public static Team2 Default {
             get {
                 return defaultInstance;
             }
@@ -25,37 +25,37 @@ namespace SchoolGame.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Blue")]
-        public global::System.Drawing.Color Team1Color {
+        [global::System.Configuration.DefaultSettingValueAttribute("Red")]
+        public global::System.Drawing.Color Team2Color {
             get {
-                return ((global::System.Drawing.Color)(this["Team1Color"]));
+                return ((global::System.Drawing.Color)(this["Team2Color"]));
             }
             set {
-                this["Team1Color"] = value;
+                this["Team2Color"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Blue Team")]
-        public string Team1Name {
+        [global::System.Configuration.DefaultSettingValueAttribute("Red Team")]
+        public string Team2Name {
             get {
-                return ((string)(this["Team1Name"]));
+                return ((string)(this["Team2Name"]));
             }
             set {
-                this["Team1Name"] = value;
+                this["Team2Name"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif, 8.25pt")]
-        public global::System.Drawing.Font Team1Font {
+        public global::System.Drawing.Font Team2Font {
             get {
-                return ((global::System.Drawing.Font)(this["Team1Font"]));
+                return ((global::System.Drawing.Font)(this["Team2Font"]));
             }
             set {
-                this["Team1Font"] = value;
+                this["Team2Font"] = value;
             }
         }
     }

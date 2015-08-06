@@ -1,4 +1,4 @@
-﻿namespace SchoolGame.UI {
+﻿namespace SchoolGame.Game.UI {
   partial class Splash {
     /// <summary>
     /// Required designer variable.

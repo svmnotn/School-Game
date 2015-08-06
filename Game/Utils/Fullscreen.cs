@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SchoolGame.Utils {
+namespace SchoolGame.Game.Utils {
   internal enum ScreenMode {
     Fullscreen,
     Normal

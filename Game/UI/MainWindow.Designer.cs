@@ -1,4 +1,4 @@
-﻿namespace SchoolGame.UI {
+﻿namespace SchoolGame.Game.UI {
   partial class MainWindow {
     /// <summary>
     /// Required designer variable.

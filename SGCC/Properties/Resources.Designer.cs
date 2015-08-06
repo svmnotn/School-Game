@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SchoolGame.Properties {
+namespace SchoolGame.SGCC.Properties {
 
 
   /// <summary>
@@ -38,7 +38,7 @@ namespace SchoolGame.Properties {
     internal static global::System.Resources.ResourceManager ResourceManager {
       get {
         if((resourceMan == null)) {
-          global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SchoolGame.Properties.Resources", typeof(Resources).Assembly);
+          global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SchoolGame.SGCC.Properties.Resources", typeof(Resources).Assembly);
           resourceMan = temp;
         }
         return resourceMan;
