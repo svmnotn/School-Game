@@ -5,11 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolGame {
-  public class Archive {
+  using Questions = IDictionary<int, Question>;
+  public class Topic {
     string name;
-    string description;
-    string updateURL;
-    
-    Topic[] topics;
+    Questions questions;
   }
 }

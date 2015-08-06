@@ -5,11 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolGame {
-  public class Archive {
-    string name;
-    string description;
-    string updateURL;
-    
-    Topic[] topics;
+  public class Answer {
+    public string answer;
+    public bool correct;
+    public string imageLoc;
   }
 }
