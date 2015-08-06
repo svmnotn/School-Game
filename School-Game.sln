@@ -4,8 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.22823.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game", "Game\Game.csproj", "{D920B441-7811-4139-890D-0E924285E21A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF} = {B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGCC", "SGCC\SGCC.csproj", "{542276C2-0748-4DA9-9201-4771E7F64822}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF} = {B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolGame", "SchoolGame\SchoolGame.csproj", "{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,10 @@ Global
 		{542276C2-0748-4DA9-9201-4771E7F64822}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{542276C2-0748-4DA9-9201-4771E7F64822}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{542276C2-0748-4DA9-9201-4771E7F64822}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B66D2BAB-CEE0-4247-AAC2-F40B2119BFEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
