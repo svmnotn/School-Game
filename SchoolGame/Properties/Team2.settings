@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SchoolGame.Properties" GeneratedClassName="Team2">
+  <Profiles />
+  <Settings>
+    <Setting Name="Team2Color" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Red</Value>
+    </Setting>
+    <Setting Name="Team2Name" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Red Team</Value>
+    </Setting>
+    <Setting Name="Team2Font" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Microsoft Sans Serif, 8.25pt</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
