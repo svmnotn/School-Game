@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SchoolGame")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("SchoolGame-Core")]
+[assembly: AssemblyDescription("The shared core of both the Game and the SGCC")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SchoolGame")]
+[assembly: AssemblyProduct("School Game")]
 [assembly: AssemblyCopyright("Copyright (c) 2015 Victor M. Suarez")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
