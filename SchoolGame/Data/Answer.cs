@@ -1,4 +1,4 @@
-﻿namespace SchoolGame {
+﻿namespace SchoolGame.Data {
 
   public class Answer {
     public string answer;

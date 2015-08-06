@@ -1,4 +1,4 @@
-﻿namespace SchoolGame {
+﻿namespace SchoolGame.Data {
   using System;
   using Answers = System.Collections.Generic.IList<Answer>;
 

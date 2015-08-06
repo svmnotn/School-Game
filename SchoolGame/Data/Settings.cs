@@ -1,4 +1,4 @@
-﻿namespace SchoolGame {
+﻿namespace SchoolGame.Data {
   using System.Drawing;
 
   public class Settings {

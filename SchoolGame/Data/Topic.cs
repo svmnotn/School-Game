@@ -1,4 +1,4 @@
-﻿namespace SchoolGame {
+﻿namespace SchoolGame.Data {
   using Questions = System.Collections.Generic.IDictionary<int, Question>;
 
   public class Topic {
