@@ -73,66 +73,6 @@ namespace SchoolGame.Game.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Gray")]
-        public global::System.Drawing.Color BackgroundColor {
-            get {
-                return ((global::System.Drawing.Color)(this["BackgroundColor"]));
-            }
-            set {
-                this["BackgroundColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Yellow")]
-        public global::System.Drawing.Color TimerColor {
-            get {
-                return ((global::System.Drawing.Color)(this["TimerColor"]));
-            }
-            set {
-                this["TimerColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("School Game")]
-        public string GameName {
-            get {
-                return ((string)(this["GameName"]));
-            }
-            set {
-                this["GameName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string BackgroundImage {
-            get {
-                return ((string)(this["BackgroundImage"]));
-            }
-            set {
-                this["BackgroundImage"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Microsoft Sans Serif, 8.25pt")]
-        public global::System.Drawing.Font TimerFont {
-            get {
-                return ((global::System.Drawing.Font)(this["TimerFont"]));
-            }
-            set {
-                this["TimerFont"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string QuestionPack {
             get {

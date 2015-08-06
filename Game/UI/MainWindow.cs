@@ -12,10 +12,6 @@ namespace SchoolGame.Game.UI {
   public partial class MainWindow : Form {
     public MainWindow() {
       InitializeComponent();
-      BackColor = Properties.General.Default.BackgroundColor;
-      if(!string.IsNullOrWhiteSpace(Properties.General.Default.BackgroundImage)) {
-        BackgroundImage = Image.FromFile(Properties.General.Default.BackgroundImage);
-      }
     }
 
     private void OnTick(object sender, EventArgs e) {

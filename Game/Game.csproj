@@ -126,25 +126,10 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Properties\Team1.Designer.cs">
-      <DependentUpon>Team1.settings</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
     <Compile Include="Utils\Fullscreen.cs" />
     <EmbeddedResource Include="UI\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="UI\Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,19 +142,6 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>General.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Properties\Team1.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Team1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Properties\Team2.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Team2.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Team2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Team2.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -58,41 +58,5 @@ namespace SchoolGame.Game.Properties {
                 this["EnableWrongSound"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string BackgorundMusicFile {
-            get {
-                return ((string)(this["BackgorundMusicFile"]));
-            }
-            set {
-                this["BackgorundMusicFile"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string CorrectSoundFile {
-            get {
-                return ((string)(this["CorrectSoundFile"]));
-            }
-            set {
-                this["CorrectSoundFile"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string WrongSoundFile {
-            get {
-                return ((string)(this["WrongSoundFile"]));
-            }
-            set {
-                this["WrongSoundFile"] = value;
-            }
-        }
     }
 }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace SchoolGame {
+  using System;
+  using Answers = System.Collections.Generic.IList<Answer>;
 
-namespace SchoolGame {
-  using Answers = IList<Answer>;
   public class Question {
     public int value;
     public string question;
