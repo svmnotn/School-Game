@@ -72,6 +72,8 @@
       this.openImage = new System.Windows.Forms.OpenFileDialog();
       this.openSound = new System.Windows.Forms.OpenFileDialog();
       this.fontDialog = new System.Windows.Forms.FontDialog();
+      this.openArchive = new System.Windows.Forms.OpenFileDialog();
+      this.saveArchiveDialog = new System.Windows.Forms.SaveFileDialog();
       this.tabControl.SuspendLayout();
       this.generalTab.SuspendLayout();
       this.generalTable.SuspendLayout();
@@ -135,6 +137,7 @@
       // 
       // timeInfoGroup
       // 
+      this.timeInfoGroup.BackColor = System.Drawing.Color.Transparent;
       this.timeInfoGroup.Controls.Add(this.timeTable);
       this.timeInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
       this.timeInfoGroup.Location = new System.Drawing.Point(3, 356);
@@ -467,7 +470,6 @@
       this.bkgImage.Location = new System.Drawing.Point(186, 28);
       this.bkgImage.Name = "bkgImage";
       this.bkgImage.Size = new System.Drawing.Size(544, 70);
-      this.bkgImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
       this.bkgImage.TabIndex = 2;
       this.bkgImage.TabStop = false;
       this.bkgImage.Click += new System.EventHandler(this.SelectBkgImage);
@@ -646,6 +648,15 @@
       // 
       this.fontDialog.FontMustExist = true;
       // 
+      // openArchive
+      // 
+      this.openArchive.FileName = "openFileDialog";
+      this.openArchive.Filter = "School Game Content Archive (*.sgca)|*.sgca";
+      // 
+      // saveArchiveDialog
+      // 
+      this.saveArchiveDialog.DefaultExt = "sgca";
+      // 
       // MainScreen
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -734,5 +745,7 @@
     private System.Windows.Forms.NumericUpDown afterAnswer;
     private System.Windows.Forms.NumericUpDown delayScore;
     private System.Windows.Forms.NumericUpDown delayGO;
+    private System.Windows.Forms.OpenFileDialog openArchive;
+    private System.Windows.Forms.SaveFileDialog saveArchiveDialog;
   }
 }

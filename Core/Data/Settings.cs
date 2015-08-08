@@ -21,9 +21,9 @@
   }
 
   public class TimeSettings {
-    public double timeForAnswer;
-    public double delayAfternAnswer;
-    public double scoreDelay;
-    public double gameoverDelay;
+    public decimal beforeAnswer;
+    public decimal afterAnswer;
+    public decimal scoreDelay;
+    public decimal gameOverDelay;
   }
 }
