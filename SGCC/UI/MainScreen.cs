@@ -19,6 +19,7 @@ namespace SchoolGame.SGCC.UI {
       archive = new Archive();
       archive.settings = new Settings();
       archive.settings.sound = new SoundSettings();
+      archive.settings.time = new TimeSettings();
     }
 
     private void LoadArchive(object sender, EventArgs e) {
@@ -44,16 +45,18 @@ namespace SchoolGame.SGCC.UI {
     #region Set Archive Data to user input
 
       #region Set Images
-        private void SelectBkgImage(object sender, EventArgs e) {
-          ShowOpenDialog(openImage, "Select the Background Image", (object send, CancelEventArgs er) => archive.settings.backgroundLoc = ((OpenFileDialog)send).FileName);
+      private void SelectBkgImage(object sender, EventArgs e) {
+        ShowOpenDialog(openImage, "Select the Background Image", (object send, CancelEventArgs er) => archive.settings.backgroundLoc = ((OpenFileDialog)send).FileName);
+        if(!string.IsNullOrWhiteSpace(archive.settings.backgroundLoc)) {
           archive.settings.background = Image.FromFile(archive.settings.backgroundLoc);
           var obj = (PictureBox)sender;
           obj.Image = archive.settings.background;
         }
+      }
       #endregion
 
-      #region Set Text
-        private void SetArchiveName(object sender, EventArgs e) {
+    #region Set Text
+    private void SetArchiveName(object sender, EventArgs e) {
           var obj = (TextBox)sender;
           archive.name = obj.Text;
         }
@@ -135,8 +138,13 @@ namespace SchoolGame.SGCC.UI {
           var obj = (NumericUpDown)sender;
           archive.settings.time.gameOverDelay = obj.Value;
         }
-      #endregion
+    #endregion
 
     #endregion
+
+    private void treeView1_AfterSelect(object sender, TreeViewEventArgs e) {
+      Console.WriteLine(sender);
+      Console.WriteLine(e.Node);
+    }
   }
 }

@@ -53,6 +53,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="UI\AnswerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AnswerControl.Designer.cs">
+      <DependentUpon>AnswerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AnswerControl.resx">
+      <DependentUpon>AnswerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainScreen.resx">
       <DependentUpon>MainScreen.cs</DependentUpon>
