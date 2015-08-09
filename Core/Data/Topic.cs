@@ -1,8 +1,8 @@
 ﻿namespace SchoolGame.Data {
-  using Questions = System.Collections.Generic.IDictionary<int, Question>;
+  using System.Collections.Generic;
 
   public class Topic {
     public string name;
-    public Questions questions;
+    public IDictionary<int, Question> questions;
   }
 }

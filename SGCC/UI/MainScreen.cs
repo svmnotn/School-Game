@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SchoolGame.SGCC.UI {
@@ -14,12 +10,14 @@ namespace SchoolGame.SGCC.UI {
   public partial class MainScreen : Form {
     Archive archive;
 
+    public MainScreen(Archive a) {
+      InitializeComponent();
+      archive = a;
+    }
+
     public MainScreen() {
       InitializeComponent();
-      archive = new Archive();
-      archive.settings = new Settings();
-      archive.settings.sound = new SoundSettings();
-      archive.settings.time = new TimeSettings();
+      archive = Archive.Default();
     }
 
     private void LoadArchive(object sender, EventArgs e) {
@@ -141,10 +139,5 @@ namespace SchoolGame.SGCC.UI {
     #endregion
 
     #endregion
-
-    private void treeView1_AfterSelect(object sender, TreeViewEventArgs e) {
-      Console.WriteLine(sender);
-      Console.WriteLine(e.Node);
-    }
   }
 }

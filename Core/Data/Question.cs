@@ -1,16 +1,15 @@
 ﻿namespace SchoolGame.Data {
   using System;
   using System.Drawing;
-  using Answers = System.Collections.Generic.IList<Answer>;
+  using System.Collections.Generic;
 
   public class Question {
+    public string id;
     public int value;
     public string question;
     [NonSerialized]
     public Image image;
     public string imageLoc;
-    [NonSerialized]
-    public string loc;
-    public Answers answers;
+    public IList<Answer> answers;
   }
 }
