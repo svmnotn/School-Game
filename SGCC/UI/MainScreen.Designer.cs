@@ -69,10 +69,8 @@
       this.archiveInfoGroup = new System.Windows.Forms.GroupBox();
       this.archiveTable = new System.Windows.Forms.TableLayoutPanel();
       this.archiveName = new System.Windows.Forms.TextBox();
-      this.updateURL = new System.Windows.Forms.TextBox();
       this.archiveNameLabel = new System.Windows.Forms.Label();
       this.archiveDescLabel = new System.Windows.Forms.Label();
-      this.archiveURLLabel = new System.Windows.Forms.Label();
       this.archiveDesc = new System.Windows.Forms.TextBox();
       this.questionsTab = new System.Windows.Forms.TabPage();
       this.splitContainer = new System.Windows.Forms.SplitContainer();
@@ -110,6 +108,8 @@
       this.fontDialog = new System.Windows.Forms.FontDialog();
       this.openArchive = new System.Windows.Forms.OpenFileDialog();
       this.saveArchiveDialog = new System.Windows.Forms.SaveFileDialog();
+      this.archiveURLLabel = new System.Windows.Forms.Label();
+      this.updateURL = new System.Windows.Forms.TextBox();
       this.tabControl.SuspendLayout();
       this.generalTab.SuspendLayout();
       this.generalTable.SuspendLayout();
@@ -171,15 +171,15 @@
       // 
       // generalTable
       // 
+      this.generalTable.AutoScroll = true;
       this.generalTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.generalTable.ColumnCount = 1;
-      this.generalTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.generalTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.generalTable.Controls.Add(this.timeInfoGroup, 0, 3);
       this.generalTable.Controls.Add(this.soundInfoGroup, 0, 2);
       this.generalTable.Controls.Add(this.generalInfoGroup, 0, 1);
       this.generalTable.Controls.Add(this.archiveInfoGroup, 0, 0);
       this.generalTable.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.generalTable.Enabled = false;
       this.generalTable.Location = new System.Drawing.Point(3, 3);
       this.generalTable.Name = "generalTable";
       this.generalTable.RowCount = 4;
@@ -189,7 +189,6 @@
       this.generalTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.generalTable.Size = new System.Drawing.Size(770, 505);
       this.generalTable.TabIndex = 0;
-      this.generalTable.Visible = false;
       // 
       // timeInfoGroup
       // 
@@ -197,21 +196,19 @@
       this.timeInfoGroup.BackColor = System.Drawing.Color.Transparent;
       this.timeInfoGroup.Controls.Add(this.timeTable);
       this.timeInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.timeInfoGroup.Enabled = false;
       this.timeInfoGroup.Location = new System.Drawing.Point(3, 740);
       this.timeInfoGroup.Name = "timeInfoGroup";
-      this.timeInfoGroup.Size = new System.Drawing.Size(949, 175);
+      this.timeInfoGroup.Size = new System.Drawing.Size(747, 175);
       this.timeInfoGroup.TabIndex = 3;
       this.timeInfoGroup.TabStop = false;
       this.timeInfoGroup.Text = "Time Settings";
-      this.timeInfoGroup.Visible = false;
       // 
       // timeTable
       // 
       this.timeTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.timeTable.ColumnCount = 2;
-      this.timeTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-      this.timeTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.timeTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.timeTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
       this.timeTable.Controls.Add(this.timerFontLabel, 0, 0);
       this.timeTable.Controls.Add(this.timerColorLabel, 0, 1);
       this.timeTable.Controls.Add(this.beforeAnswerLabel, 0, 2);
@@ -235,7 +232,7 @@
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.timeTable.Size = new System.Drawing.Size(943, 156);
+      this.timeTable.Size = new System.Drawing.Size(741, 156);
       this.timeTable.TabIndex = 0;
       // 
       // timerFontLabel
@@ -244,7 +241,7 @@
       this.timerFontLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.timerFontLabel.Location = new System.Drawing.Point(3, 0);
       this.timerFontLabel.Name = "timerFontLabel";
-      this.timerFontLabel.Size = new System.Drawing.Size(146, 26);
+      this.timerFontLabel.Size = new System.Drawing.Size(179, 26);
       this.timerFontLabel.TabIndex = 0;
       this.timerFontLabel.Text = "Timer Font:";
       this.timerFontLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -255,7 +252,7 @@
       this.timerColorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.timerColorLabel.Location = new System.Drawing.Point(3, 26);
       this.timerColorLabel.Name = "timerColorLabel";
-      this.timerColorLabel.Size = new System.Drawing.Size(146, 26);
+      this.timerColorLabel.Size = new System.Drawing.Size(179, 26);
       this.timerColorLabel.TabIndex = 1;
       this.timerColorLabel.Text = "Timer Color:";
       this.timerColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -266,7 +263,7 @@
       this.beforeAnswerLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.beforeAnswerLabel.Location = new System.Drawing.Point(3, 52);
       this.beforeAnswerLabel.Name = "beforeAnswerLabel";
-      this.beforeAnswerLabel.Size = new System.Drawing.Size(146, 26);
+      this.beforeAnswerLabel.Size = new System.Drawing.Size(179, 26);
       this.beforeAnswerLabel.TabIndex = 2;
       this.beforeAnswerLabel.Text = "Time before question answer:";
       this.beforeAnswerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -277,7 +274,7 @@
       this.afterAnswerLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.afterAnswerLabel.Location = new System.Drawing.Point(3, 78);
       this.afterAnswerLabel.Name = "afterAnswerLabel";
-      this.afterAnswerLabel.Size = new System.Drawing.Size(146, 26);
+      this.afterAnswerLabel.Size = new System.Drawing.Size(179, 26);
       this.afterAnswerLabel.TabIndex = 3;
       this.afterAnswerLabel.Text = "Delay after Answer:";
       this.afterAnswerLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -288,7 +285,7 @@
       this.delayScoreLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.delayScoreLabel.Location = new System.Drawing.Point(3, 104);
       this.delayScoreLabel.Name = "delayScoreLabel";
-      this.delayScoreLabel.Size = new System.Drawing.Size(146, 26);
+      this.delayScoreLabel.Size = new System.Drawing.Size(179, 26);
       this.delayScoreLabel.TabIndex = 4;
       this.delayScoreLabel.Text = "Delay to see the Score:";
       this.delayScoreLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -299,7 +296,7 @@
       this.delayGOLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.delayGOLabel.Location = new System.Drawing.Point(3, 130);
       this.delayGOLabel.Name = "delayGOLabel";
-      this.delayGOLabel.Size = new System.Drawing.Size(146, 26);
+      this.delayGOLabel.Size = new System.Drawing.Size(179, 26);
       this.delayGOLabel.TabIndex = 5;
       this.delayGOLabel.Text = "Delay after Game Over:";
       this.delayGOLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -307,18 +304,18 @@
       // timerFont
       // 
       this.timerFont.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.timerFont.Location = new System.Drawing.Point(155, 3);
+      this.timerFont.Location = new System.Drawing.Point(188, 3);
       this.timerFont.Name = "timerFont";
-      this.timerFont.Size = new System.Drawing.Size(785, 20);
+      this.timerFont.Size = new System.Drawing.Size(550, 20);
       this.timerFont.TabIndex = 6;
       this.timerFont.Click += new System.EventHandler(this.SelectTimerFont);
       // 
       // timerColor
       // 
       this.timerColor.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.timerColor.Location = new System.Drawing.Point(155, 29);
+      this.timerColor.Location = new System.Drawing.Point(188, 29);
       this.timerColor.Name = "timerColor";
-      this.timerColor.Size = new System.Drawing.Size(785, 20);
+      this.timerColor.Size = new System.Drawing.Size(550, 20);
       this.timerColor.TabIndex = 7;
       this.timerColor.Click += new System.EventHandler(this.SelectTimerColor);
       // 
@@ -326,14 +323,14 @@
       // 
       this.beforeAnswer.DecimalPlaces = 4;
       this.beforeAnswer.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.beforeAnswer.Location = new System.Drawing.Point(155, 55);
+      this.beforeAnswer.Location = new System.Drawing.Point(188, 55);
       this.beforeAnswer.Maximum = new decimal(new int[] {
             3600,
             0,
             0,
             0});
       this.beforeAnswer.Name = "beforeAnswer";
-      this.beforeAnswer.Size = new System.Drawing.Size(785, 20);
+      this.beforeAnswer.Size = new System.Drawing.Size(550, 20);
       this.beforeAnswer.TabIndex = 8;
       this.beforeAnswer.ValueChanged += new System.EventHandler(this.SetBeforeQuestion);
       // 
@@ -341,14 +338,14 @@
       // 
       this.afterAnswer.DecimalPlaces = 4;
       this.afterAnswer.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.afterAnswer.Location = new System.Drawing.Point(155, 81);
+      this.afterAnswer.Location = new System.Drawing.Point(188, 81);
       this.afterAnswer.Maximum = new decimal(new int[] {
             3600,
             0,
             0,
             0});
       this.afterAnswer.Name = "afterAnswer";
-      this.afterAnswer.Size = new System.Drawing.Size(785, 20);
+      this.afterAnswer.Size = new System.Drawing.Size(550, 20);
       this.afterAnswer.TabIndex = 9;
       this.afterAnswer.ValueChanged += new System.EventHandler(this.SetAfterQuestion);
       // 
@@ -356,14 +353,14 @@
       // 
       this.delayScore.DecimalPlaces = 4;
       this.delayScore.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.delayScore.Location = new System.Drawing.Point(155, 107);
+      this.delayScore.Location = new System.Drawing.Point(188, 107);
       this.delayScore.Maximum = new decimal(new int[] {
             3600,
             0,
             0,
             0});
       this.delayScore.Name = "delayScore";
-      this.delayScore.Size = new System.Drawing.Size(785, 20);
+      this.delayScore.Size = new System.Drawing.Size(550, 20);
       this.delayScore.TabIndex = 10;
       this.delayScore.ValueChanged += new System.EventHandler(this.SetScoreDelay);
       // 
@@ -371,14 +368,14 @@
       // 
       this.delayGO.DecimalPlaces = 4;
       this.delayGO.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.delayGO.Location = new System.Drawing.Point(155, 133);
+      this.delayGO.Location = new System.Drawing.Point(188, 133);
       this.delayGO.Maximum = new decimal(new int[] {
             3600,
             0,
             0,
             0});
       this.delayGO.Name = "delayGO";
-      this.delayGO.Size = new System.Drawing.Size(785, 20);
+      this.delayGO.Size = new System.Drawing.Size(550, 20);
       this.delayGO.TabIndex = 11;
       this.delayGO.ValueChanged += new System.EventHandler(this.SetGODelay);
       // 
@@ -389,7 +386,7 @@
       this.soundInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
       this.soundInfoGroup.Location = new System.Drawing.Point(3, 637);
       this.soundInfoGroup.Name = "soundInfoGroup";
-      this.soundInfoGroup.Size = new System.Drawing.Size(949, 97);
+      this.soundInfoGroup.Size = new System.Drawing.Size(747, 97);
       this.soundInfoGroup.TabIndex = 2;
       this.soundInfoGroup.TabStop = false;
       this.soundInfoGroup.Text = "Sound Settings";
@@ -398,8 +395,8 @@
       // 
       this.soundTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.soundTable.ColumnCount = 2;
-      this.soundTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-      this.soundTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.soundTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.soundTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
       this.soundTable.Controls.Add(this.bkgSoundLabel, 0, 0);
       this.soundTable.Controls.Add(this.correctSoundLabel, 0, 1);
       this.soundTable.Controls.Add(this.wrongSoundLabel, 0, 2);
@@ -414,7 +411,7 @@
       this.soundTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.soundTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.soundTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.soundTable.Size = new System.Drawing.Size(943, 78);
+      this.soundTable.Size = new System.Drawing.Size(741, 78);
       this.soundTable.TabIndex = 0;
       // 
       // bkgSoundLabel
@@ -423,7 +420,7 @@
       this.bkgSoundLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.bkgSoundLabel.Location = new System.Drawing.Point(3, 0);
       this.bkgSoundLabel.Name = "bkgSoundLabel";
-      this.bkgSoundLabel.Size = new System.Drawing.Size(99, 26);
+      this.bkgSoundLabel.Size = new System.Drawing.Size(179, 26);
       this.bkgSoundLabel.TabIndex = 0;
       this.bkgSoundLabel.Text = "Background Music:";
       this.bkgSoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -434,7 +431,7 @@
       this.correctSoundLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.correctSoundLabel.Location = new System.Drawing.Point(3, 26);
       this.correctSoundLabel.Name = "correctSoundLabel";
-      this.correctSoundLabel.Size = new System.Drawing.Size(99, 26);
+      this.correctSoundLabel.Size = new System.Drawing.Size(179, 26);
       this.correctSoundLabel.TabIndex = 1;
       this.correctSoundLabel.Text = "Correct Sound:";
       this.correctSoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -445,7 +442,7 @@
       this.wrongSoundLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.wrongSoundLabel.Location = new System.Drawing.Point(3, 52);
       this.wrongSoundLabel.Name = "wrongSoundLabel";
-      this.wrongSoundLabel.Size = new System.Drawing.Size(99, 26);
+      this.wrongSoundLabel.Size = new System.Drawing.Size(179, 26);
       this.wrongSoundLabel.TabIndex = 2;
       this.wrongSoundLabel.Text = "Wrong Sound:";
       this.wrongSoundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -453,27 +450,27 @@
       // bkgSound
       // 
       this.bkgSound.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.bkgSound.Location = new System.Drawing.Point(108, 3);
+      this.bkgSound.Location = new System.Drawing.Point(188, 3);
       this.bkgSound.Name = "bkgSound";
-      this.bkgSound.Size = new System.Drawing.Size(832, 20);
+      this.bkgSound.Size = new System.Drawing.Size(550, 20);
       this.bkgSound.TabIndex = 3;
       this.bkgSound.Click += new System.EventHandler(this.SelectBkgSound);
       // 
       // correctSound
       // 
       this.correctSound.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.correctSound.Location = new System.Drawing.Point(108, 29);
+      this.correctSound.Location = new System.Drawing.Point(188, 29);
       this.correctSound.Name = "correctSound";
-      this.correctSound.Size = new System.Drawing.Size(832, 20);
+      this.correctSound.Size = new System.Drawing.Size(550, 20);
       this.correctSound.TabIndex = 4;
       this.correctSound.Click += new System.EventHandler(this.SelectCorrectSound);
       // 
       // wrongSound
       // 
       this.wrongSound.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.wrongSound.Location = new System.Drawing.Point(108, 55);
+      this.wrongSound.Location = new System.Drawing.Point(188, 55);
       this.wrongSound.Name = "wrongSound";
-      this.wrongSound.Size = new System.Drawing.Size(832, 20);
+      this.wrongSound.Size = new System.Drawing.Size(550, 20);
       this.wrongSound.TabIndex = 5;
       this.wrongSound.Click += new System.EventHandler(this.SelectWrongSound);
       // 
@@ -484,7 +481,7 @@
       this.generalInfoGroup.Location = new System.Drawing.Point(1, 130);
       this.generalInfoGroup.Margin = new System.Windows.Forms.Padding(1);
       this.generalInfoGroup.Name = "generalInfoGroup";
-      this.generalInfoGroup.Size = new System.Drawing.Size(953, 503);
+      this.generalInfoGroup.Size = new System.Drawing.Size(751, 503);
       this.generalInfoGroup.TabIndex = 1;
       this.generalInfoGroup.TabStop = false;
       this.generalInfoGroup.Text = "General Settings";
@@ -493,8 +490,8 @@
       // 
       this.generalSTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.generalSTable.ColumnCount = 2;
-      this.generalSTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-      this.generalSTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.generalSTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.generalSTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
       this.generalSTable.Controls.Add(this.bkgColorLabel, 0, 6);
       this.generalSTable.Controls.Add(this.bkgImageLabel, 0, 7);
       this.generalSTable.Controls.Add(this.bkgImage, 1, 7);
@@ -524,7 +521,7 @@
       this.generalSTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.generalSTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.generalSTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.generalSTable.Size = new System.Drawing.Size(947, 484);
+      this.generalSTable.Size = new System.Drawing.Size(745, 484);
       this.generalSTable.TabIndex = 0;
       // 
       // bkgColorLabel
@@ -533,7 +530,7 @@
       this.bkgColorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.bkgColorLabel.Location = new System.Drawing.Point(3, 156);
       this.bkgColorLabel.Name = "bkgColorLabel";
-      this.bkgColorLabel.Size = new System.Drawing.Size(100, 26);
+      this.bkgColorLabel.Size = new System.Drawing.Size(180, 26);
       this.bkgColorLabel.TabIndex = 0;
       this.bkgColorLabel.Text = "Background Color:";
       this.bkgColorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -544,7 +541,7 @@
       this.bkgImageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.bkgImageLabel.Location = new System.Drawing.Point(3, 182);
       this.bkgImageLabel.Name = "bkgImageLabel";
-      this.bkgImageLabel.Size = new System.Drawing.Size(100, 302);
+      this.bkgImageLabel.Size = new System.Drawing.Size(180, 302);
       this.bkgImageLabel.TabIndex = 1;
       this.bkgImageLabel.Text = "Background Image:";
       this.bkgImageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -553,9 +550,9 @@
       // 
       this.bkgImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.bkgImage.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.bkgImage.Location = new System.Drawing.Point(109, 185);
+      this.bkgImage.Location = new System.Drawing.Point(189, 185);
       this.bkgImage.Name = "bkgImage";
-      this.bkgImage.Size = new System.Drawing.Size(835, 296);
+      this.bkgImage.Size = new System.Drawing.Size(553, 296);
       this.bkgImage.TabIndex = 2;
       this.bkgImage.TabStop = false;
       this.bkgImage.Click += new System.EventHandler(this.SelectBkgImage);
@@ -563,58 +560,58 @@
       // bkgColor
       // 
       this.bkgColor.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.bkgColor.Location = new System.Drawing.Point(109, 159);
+      this.bkgColor.Location = new System.Drawing.Point(189, 159);
       this.bkgColor.Name = "bkgColor";
-      this.bkgColor.Size = new System.Drawing.Size(835, 20);
+      this.bkgColor.Size = new System.Drawing.Size(553, 20);
       this.bkgColor.TabIndex = 3;
       this.bkgColor.Click += new System.EventHandler(this.SelectBkgColor);
       // 
       // textBox1
       // 
       this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox1.Location = new System.Drawing.Point(109, 3);
+      this.textBox1.Location = new System.Drawing.Point(189, 3);
       this.textBox1.Name = "textBox1";
-      this.textBox1.Size = new System.Drawing.Size(835, 20);
+      this.textBox1.Size = new System.Drawing.Size(553, 20);
       this.textBox1.TabIndex = 4;
       // 
       // textBox2
       // 
       this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox2.Location = new System.Drawing.Point(109, 29);
+      this.textBox2.Location = new System.Drawing.Point(189, 29);
       this.textBox2.Name = "textBox2";
-      this.textBox2.Size = new System.Drawing.Size(835, 20);
+      this.textBox2.Size = new System.Drawing.Size(553, 20);
       this.textBox2.TabIndex = 5;
       // 
       // textBox3
       // 
       this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox3.Location = new System.Drawing.Point(109, 55);
+      this.textBox3.Location = new System.Drawing.Point(189, 55);
       this.textBox3.Name = "textBox3";
-      this.textBox3.Size = new System.Drawing.Size(835, 20);
+      this.textBox3.Size = new System.Drawing.Size(553, 20);
       this.textBox3.TabIndex = 6;
       // 
       // textBox4
       // 
       this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox4.Location = new System.Drawing.Point(109, 81);
+      this.textBox4.Location = new System.Drawing.Point(189, 81);
       this.textBox4.Name = "textBox4";
-      this.textBox4.Size = new System.Drawing.Size(835, 20);
+      this.textBox4.Size = new System.Drawing.Size(553, 20);
       this.textBox4.TabIndex = 7;
       // 
       // textBox5
       // 
       this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox5.Location = new System.Drawing.Point(109, 107);
+      this.textBox5.Location = new System.Drawing.Point(189, 107);
       this.textBox5.Name = "textBox5";
-      this.textBox5.Size = new System.Drawing.Size(835, 20);
+      this.textBox5.Size = new System.Drawing.Size(553, 20);
       this.textBox5.TabIndex = 8;
       // 
       // textBox6
       // 
       this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox6.Location = new System.Drawing.Point(109, 133);
+      this.textBox6.Location = new System.Drawing.Point(189, 133);
       this.textBox6.Name = "textBox6";
-      this.textBox6.Size = new System.Drawing.Size(835, 20);
+      this.textBox6.Size = new System.Drawing.Size(553, 20);
       this.textBox6.TabIndex = 9;
       // 
       // label1
@@ -623,7 +620,7 @@
       this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label1.Location = new System.Drawing.Point(3, 0);
       this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(100, 26);
+      this.label1.Size = new System.Drawing.Size(180, 26);
       this.label1.TabIndex = 10;
       this.label1.Text = "label1";
       this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -634,7 +631,7 @@
       this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label2.Location = new System.Drawing.Point(3, 26);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(100, 26);
+      this.label2.Size = new System.Drawing.Size(180, 26);
       this.label2.TabIndex = 11;
       this.label2.Text = "label2";
       this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -645,7 +642,7 @@
       this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label3.Location = new System.Drawing.Point(3, 52);
       this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(100, 26);
+      this.label3.Size = new System.Drawing.Size(180, 26);
       this.label3.TabIndex = 12;
       this.label3.Text = "label3";
       this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -656,7 +653,7 @@
       this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label4.Location = new System.Drawing.Point(3, 78);
       this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(100, 26);
+      this.label4.Size = new System.Drawing.Size(180, 26);
       this.label4.TabIndex = 13;
       this.label4.Text = "label4";
       this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -667,7 +664,7 @@
       this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label5.Location = new System.Drawing.Point(3, 104);
       this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(100, 26);
+      this.label5.Size = new System.Drawing.Size(180, 26);
       this.label5.TabIndex = 14;
       this.label5.Text = "label5";
       this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -678,7 +675,7 @@
       this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
       this.label6.Location = new System.Drawing.Point(3, 130);
       this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(100, 26);
+      this.label6.Size = new System.Drawing.Size(180, 26);
       this.label6.TabIndex = 15;
       this.label6.Text = "label6";
       this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -686,10 +683,11 @@
       // archiveInfoGroup
       // 
       this.archiveInfoGroup.Controls.Add(this.archiveTable);
+      this.archiveInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveInfoGroup.Location = new System.Drawing.Point(1, 1);
       this.archiveInfoGroup.Margin = new System.Windows.Forms.Padding(1);
       this.archiveInfoGroup.Name = "archiveInfoGroup";
-      this.archiveInfoGroup.Size = new System.Drawing.Size(415, 127);
+      this.archiveInfoGroup.Size = new System.Drawing.Size(751, 127);
       this.archiveInfoGroup.TabIndex = 0;
       this.archiveInfoGroup.TabStop = false;
       this.archiveInfoGroup.Text = "Archive Information";
@@ -698,8 +696,8 @@
       // 
       this.archiveTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.archiveTable.ColumnCount = 2;
-      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
       this.archiveTable.Controls.Add(this.archiveName, 1, 0);
       this.archiveTable.Controls.Add(this.updateURL, 1, 2);
       this.archiveTable.Controls.Add(this.archiveNameLabel, 0, 0);
@@ -714,26 +712,17 @@
       this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.archiveTable.Size = new System.Drawing.Size(409, 108);
+      this.archiveTable.Size = new System.Drawing.Size(745, 108);
       this.archiveTable.TabIndex = 0;
       // 
       // archiveName
       // 
       this.archiveName.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveName.Location = new System.Drawing.Point(111, 3);
+      this.archiveName.Location = new System.Drawing.Point(189, 3);
       this.archiveName.Name = "archiveName";
-      this.archiveName.Size = new System.Drawing.Size(295, 20);
+      this.archiveName.Size = new System.Drawing.Size(553, 20);
       this.archiveName.TabIndex = 0;
       this.archiveName.TextChanged += new System.EventHandler(this.SetArchiveName);
-      // 
-      // updateURL
-      // 
-      this.updateURL.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.updateURL.Location = new System.Drawing.Point(111, 85);
-      this.updateURL.Name = "updateURL";
-      this.updateURL.Size = new System.Drawing.Size(295, 20);
-      this.updateURL.TabIndex = 2;
-      this.updateURL.TextChanged += new System.EventHandler(this.SetArchiveURL);
       // 
       // archiveNameLabel
       // 
@@ -741,7 +730,7 @@
       this.archiveNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveNameLabel.Location = new System.Drawing.Point(3, 0);
       this.archiveNameLabel.Name = "archiveNameLabel";
-      this.archiveNameLabel.Size = new System.Drawing.Size(102, 26);
+      this.archiveNameLabel.Size = new System.Drawing.Size(180, 26);
       this.archiveNameLabel.TabIndex = 3;
       this.archiveNameLabel.Text = "Archive Name:";
       this.archiveNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -752,30 +741,19 @@
       this.archiveDescLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveDescLabel.Location = new System.Drawing.Point(3, 26);
       this.archiveDescLabel.Name = "archiveDescLabel";
-      this.archiveDescLabel.Size = new System.Drawing.Size(102, 56);
+      this.archiveDescLabel.Size = new System.Drawing.Size(180, 56);
       this.archiveDescLabel.TabIndex = 4;
       this.archiveDescLabel.Text = "Archive Description:";
       this.archiveDescLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
-      // archiveURLLabel
-      // 
-      this.archiveURLLabel.AutoSize = true;
-      this.archiveURLLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveURLLabel.Location = new System.Drawing.Point(3, 82);
-      this.archiveURLLabel.Name = "archiveURLLabel";
-      this.archiveURLLabel.Size = new System.Drawing.Size(102, 26);
-      this.archiveURLLabel.TabIndex = 5;
-      this.archiveURLLabel.Text = "Update URL:";
-      this.archiveURLLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      // 
       // archiveDesc
       // 
       this.archiveDesc.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveDesc.Location = new System.Drawing.Point(111, 29);
+      this.archiveDesc.Location = new System.Drawing.Point(189, 29);
       this.archiveDesc.Multiline = true;
       this.archiveDesc.Name = "archiveDesc";
       this.archiveDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-      this.archiveDesc.Size = new System.Drawing.Size(295, 50);
+      this.archiveDesc.Size = new System.Drawing.Size(553, 50);
       this.archiveDesc.TabIndex = 1;
       this.archiveDesc.TextChanged += new System.EventHandler(this.SetArchiveDesc);
       // 
@@ -1171,6 +1149,26 @@
       // 
       this.saveArchiveDialog.DefaultExt = "sgca";
       // 
+      // archiveURLLabel
+      // 
+      this.archiveURLLabel.AutoSize = true;
+      this.archiveURLLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.archiveURLLabel.Location = new System.Drawing.Point(3, 82);
+      this.archiveURLLabel.Name = "archiveURLLabel";
+      this.archiveURLLabel.Size = new System.Drawing.Size(180, 26);
+      this.archiveURLLabel.TabIndex = 5;
+      this.archiveURLLabel.Text = "Update URL:";
+      this.archiveURLLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // updateURL
+      // 
+      this.updateURL.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.updateURL.Location = new System.Drawing.Point(189, 85);
+      this.updateURL.Name = "updateURL";
+      this.updateURL.Size = new System.Drawing.Size(553, 20);
+      this.updateURL.TabIndex = 2;
+      this.updateURL.TextChanged += new System.EventHandler(this.SetArchiveURL);
+      // 
       // MainScreen
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1242,10 +1240,8 @@
     private System.Windows.Forms.TableLayoutPanel archiveTable;
     private System.Windows.Forms.TextBox archiveName;
     private System.Windows.Forms.TextBox archiveDesc;
-    private System.Windows.Forms.TextBox updateURL;
     private System.Windows.Forms.Label archiveNameLabel;
     private System.Windows.Forms.Label archiveDescLabel;
-    private System.Windows.Forms.Label archiveURLLabel;
     private System.Windows.Forms.TabPage teamsTab;
     private System.Windows.Forms.TableLayoutPanel generalSTable;
     private System.Windows.Forms.Label bkgColorLabel;
@@ -1314,5 +1310,7 @@
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.Label label6;
+    private System.Windows.Forms.TextBox updateURL;
+    private System.Windows.Forms.Label archiveURLLabel;
   }
 }
