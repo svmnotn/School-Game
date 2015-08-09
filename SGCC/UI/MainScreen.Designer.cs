@@ -69,8 +69,10 @@
       this.archiveInfoGroup = new System.Windows.Forms.GroupBox();
       this.archiveTable = new System.Windows.Forms.TableLayoutPanel();
       this.archiveName = new System.Windows.Forms.TextBox();
+      this.updateURL = new System.Windows.Forms.TextBox();
       this.archiveNameLabel = new System.Windows.Forms.Label();
       this.archiveDescLabel = new System.Windows.Forms.Label();
+      this.archiveURLLabel = new System.Windows.Forms.Label();
       this.archiveDesc = new System.Windows.Forms.TextBox();
       this.questionsTab = new System.Windows.Forms.TabPage();
       this.splitContainer = new System.Windows.Forms.SplitContainer();
@@ -108,8 +110,6 @@
       this.fontDialog = new System.Windows.Forms.FontDialog();
       this.openArchive = new System.Windows.Forms.OpenFileDialog();
       this.saveArchiveDialog = new System.Windows.Forms.SaveFileDialog();
-      this.archiveURLLabel = new System.Windows.Forms.Label();
-      this.updateURL = new System.Windows.Forms.TextBox();
       this.tabControl.SuspendLayout();
       this.generalTab.SuspendLayout();
       this.generalTable.SuspendLayout();
@@ -182,6 +182,7 @@
       this.generalTable.Dock = System.Windows.Forms.DockStyle.Fill;
       this.generalTable.Location = new System.Drawing.Point(3, 3);
       this.generalTable.Name = "generalTable";
+      this.generalTable.Padding = new System.Windows.Forms.Padding(0, 0, 1, 0);
       this.generalTable.RowCount = 4;
       this.generalTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.generalTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -192,19 +193,21 @@
       // 
       // timeInfoGroup
       // 
+      this.timeInfoGroup.AutoSize = true;
       this.timeInfoGroup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.timeInfoGroup.BackColor = System.Drawing.Color.Transparent;
       this.timeInfoGroup.Controls.Add(this.timeTable);
       this.timeInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
       this.timeInfoGroup.Location = new System.Drawing.Point(3, 740);
       this.timeInfoGroup.Name = "timeInfoGroup";
-      this.timeInfoGroup.Size = new System.Drawing.Size(747, 175);
+      this.timeInfoGroup.Size = new System.Drawing.Size(746, 175);
       this.timeInfoGroup.TabIndex = 3;
       this.timeInfoGroup.TabStop = false;
       this.timeInfoGroup.Text = "Time Settings";
       // 
       // timeTable
       // 
+      this.timeTable.AutoSize = true;
       this.timeTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.timeTable.ColumnCount = 2;
       this.timeTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -232,7 +235,7 @@
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.timeTable.Size = new System.Drawing.Size(741, 156);
+      this.timeTable.Size = new System.Drawing.Size(740, 156);
       this.timeTable.TabIndex = 0;
       // 
       // timerFontLabel
@@ -306,7 +309,7 @@
       this.timerFont.Dock = System.Windows.Forms.DockStyle.Fill;
       this.timerFont.Location = new System.Drawing.Point(188, 3);
       this.timerFont.Name = "timerFont";
-      this.timerFont.Size = new System.Drawing.Size(550, 20);
+      this.timerFont.Size = new System.Drawing.Size(549, 20);
       this.timerFont.TabIndex = 6;
       this.timerFont.Click += new System.EventHandler(this.SelectTimerFont);
       // 
@@ -315,7 +318,7 @@
       this.timerColor.Dock = System.Windows.Forms.DockStyle.Fill;
       this.timerColor.Location = new System.Drawing.Point(188, 29);
       this.timerColor.Name = "timerColor";
-      this.timerColor.Size = new System.Drawing.Size(550, 20);
+      this.timerColor.Size = new System.Drawing.Size(549, 20);
       this.timerColor.TabIndex = 7;
       this.timerColor.Click += new System.EventHandler(this.SelectTimerColor);
       // 
@@ -330,7 +333,7 @@
             0,
             0});
       this.beforeAnswer.Name = "beforeAnswer";
-      this.beforeAnswer.Size = new System.Drawing.Size(550, 20);
+      this.beforeAnswer.Size = new System.Drawing.Size(549, 20);
       this.beforeAnswer.TabIndex = 8;
       this.beforeAnswer.ValueChanged += new System.EventHandler(this.SetBeforeQuestion);
       // 
@@ -345,7 +348,7 @@
             0,
             0});
       this.afterAnswer.Name = "afterAnswer";
-      this.afterAnswer.Size = new System.Drawing.Size(550, 20);
+      this.afterAnswer.Size = new System.Drawing.Size(549, 20);
       this.afterAnswer.TabIndex = 9;
       this.afterAnswer.ValueChanged += new System.EventHandler(this.SetAfterQuestion);
       // 
@@ -360,7 +363,7 @@
             0,
             0});
       this.delayScore.Name = "delayScore";
-      this.delayScore.Size = new System.Drawing.Size(550, 20);
+      this.delayScore.Size = new System.Drawing.Size(549, 20);
       this.delayScore.TabIndex = 10;
       this.delayScore.ValueChanged += new System.EventHandler(this.SetScoreDelay);
       // 
@@ -375,24 +378,26 @@
             0,
             0});
       this.delayGO.Name = "delayGO";
-      this.delayGO.Size = new System.Drawing.Size(550, 20);
+      this.delayGO.Size = new System.Drawing.Size(549, 20);
       this.delayGO.TabIndex = 11;
       this.delayGO.ValueChanged += new System.EventHandler(this.SetGODelay);
       // 
       // soundInfoGroup
       // 
+      this.soundInfoGroup.AutoSize = true;
       this.soundInfoGroup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.soundInfoGroup.Controls.Add(this.soundTable);
       this.soundInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
       this.soundInfoGroup.Location = new System.Drawing.Point(3, 637);
       this.soundInfoGroup.Name = "soundInfoGroup";
-      this.soundInfoGroup.Size = new System.Drawing.Size(747, 97);
+      this.soundInfoGroup.Size = new System.Drawing.Size(746, 97);
       this.soundInfoGroup.TabIndex = 2;
       this.soundInfoGroup.TabStop = false;
       this.soundInfoGroup.Text = "Sound Settings";
       // 
       // soundTable
       // 
+      this.soundTable.AutoSize = true;
       this.soundTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.soundTable.ColumnCount = 2;
       this.soundTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -411,7 +416,7 @@
       this.soundTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.soundTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.soundTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.soundTable.Size = new System.Drawing.Size(741, 78);
+      this.soundTable.Size = new System.Drawing.Size(740, 78);
       this.soundTable.TabIndex = 0;
       // 
       // bkgSoundLabel
@@ -452,7 +457,7 @@
       this.bkgSound.Dock = System.Windows.Forms.DockStyle.Fill;
       this.bkgSound.Location = new System.Drawing.Point(188, 3);
       this.bkgSound.Name = "bkgSound";
-      this.bkgSound.Size = new System.Drawing.Size(550, 20);
+      this.bkgSound.Size = new System.Drawing.Size(549, 20);
       this.bkgSound.TabIndex = 3;
       this.bkgSound.Click += new System.EventHandler(this.SelectBkgSound);
       // 
@@ -461,7 +466,7 @@
       this.correctSound.Dock = System.Windows.Forms.DockStyle.Fill;
       this.correctSound.Location = new System.Drawing.Point(188, 29);
       this.correctSound.Name = "correctSound";
-      this.correctSound.Size = new System.Drawing.Size(550, 20);
+      this.correctSound.Size = new System.Drawing.Size(549, 20);
       this.correctSound.TabIndex = 4;
       this.correctSound.Click += new System.EventHandler(this.SelectCorrectSound);
       // 
@@ -470,24 +475,26 @@
       this.wrongSound.Dock = System.Windows.Forms.DockStyle.Fill;
       this.wrongSound.Location = new System.Drawing.Point(188, 55);
       this.wrongSound.Name = "wrongSound";
-      this.wrongSound.Size = new System.Drawing.Size(550, 20);
+      this.wrongSound.Size = new System.Drawing.Size(549, 20);
       this.wrongSound.TabIndex = 5;
       this.wrongSound.Click += new System.EventHandler(this.SelectWrongSound);
       // 
       // generalInfoGroup
       // 
+      this.generalInfoGroup.AutoSize = true;
       this.generalInfoGroup.Controls.Add(this.generalSTable);
       this.generalInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
       this.generalInfoGroup.Location = new System.Drawing.Point(1, 130);
       this.generalInfoGroup.Margin = new System.Windows.Forms.Padding(1);
       this.generalInfoGroup.Name = "generalInfoGroup";
-      this.generalInfoGroup.Size = new System.Drawing.Size(751, 503);
+      this.generalInfoGroup.Size = new System.Drawing.Size(750, 503);
       this.generalInfoGroup.TabIndex = 1;
       this.generalInfoGroup.TabStop = false;
       this.generalInfoGroup.Text = "General Settings";
       // 
       // generalSTable
       // 
+      this.generalSTable.AutoSize = true;
       this.generalSTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.generalSTable.ColumnCount = 2;
       this.generalSTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -521,7 +528,7 @@
       this.generalSTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.generalSTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.generalSTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.generalSTable.Size = new System.Drawing.Size(745, 484);
+      this.generalSTable.Size = new System.Drawing.Size(744, 484);
       this.generalSTable.TabIndex = 0;
       // 
       // bkgColorLabel
@@ -552,7 +559,7 @@
       this.bkgImage.Dock = System.Windows.Forms.DockStyle.Fill;
       this.bkgImage.Location = new System.Drawing.Point(189, 185);
       this.bkgImage.Name = "bkgImage";
-      this.bkgImage.Size = new System.Drawing.Size(553, 296);
+      this.bkgImage.Size = new System.Drawing.Size(552, 296);
       this.bkgImage.TabIndex = 2;
       this.bkgImage.TabStop = false;
       this.bkgImage.Click += new System.EventHandler(this.SelectBkgImage);
@@ -562,7 +569,7 @@
       this.bkgColor.Dock = System.Windows.Forms.DockStyle.Fill;
       this.bkgColor.Location = new System.Drawing.Point(189, 159);
       this.bkgColor.Name = "bkgColor";
-      this.bkgColor.Size = new System.Drawing.Size(553, 20);
+      this.bkgColor.Size = new System.Drawing.Size(552, 20);
       this.bkgColor.TabIndex = 3;
       this.bkgColor.Click += new System.EventHandler(this.SelectBkgColor);
       // 
@@ -571,7 +578,7 @@
       this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBox1.Location = new System.Drawing.Point(189, 3);
       this.textBox1.Name = "textBox1";
-      this.textBox1.Size = new System.Drawing.Size(553, 20);
+      this.textBox1.Size = new System.Drawing.Size(552, 20);
       this.textBox1.TabIndex = 4;
       // 
       // textBox2
@@ -579,7 +586,7 @@
       this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBox2.Location = new System.Drawing.Point(189, 29);
       this.textBox2.Name = "textBox2";
-      this.textBox2.Size = new System.Drawing.Size(553, 20);
+      this.textBox2.Size = new System.Drawing.Size(552, 20);
       this.textBox2.TabIndex = 5;
       // 
       // textBox3
@@ -587,7 +594,7 @@
       this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBox3.Location = new System.Drawing.Point(189, 55);
       this.textBox3.Name = "textBox3";
-      this.textBox3.Size = new System.Drawing.Size(553, 20);
+      this.textBox3.Size = new System.Drawing.Size(552, 20);
       this.textBox3.TabIndex = 6;
       // 
       // textBox4
@@ -595,7 +602,7 @@
       this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBox4.Location = new System.Drawing.Point(189, 81);
       this.textBox4.Name = "textBox4";
-      this.textBox4.Size = new System.Drawing.Size(553, 20);
+      this.textBox4.Size = new System.Drawing.Size(552, 20);
       this.textBox4.TabIndex = 7;
       // 
       // textBox5
@@ -603,7 +610,7 @@
       this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBox5.Location = new System.Drawing.Point(189, 107);
       this.textBox5.Name = "textBox5";
-      this.textBox5.Size = new System.Drawing.Size(553, 20);
+      this.textBox5.Size = new System.Drawing.Size(552, 20);
       this.textBox5.TabIndex = 8;
       // 
       // textBox6
@@ -611,7 +618,7 @@
       this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
       this.textBox6.Location = new System.Drawing.Point(189, 133);
       this.textBox6.Name = "textBox6";
-      this.textBox6.Size = new System.Drawing.Size(553, 20);
+      this.textBox6.Size = new System.Drawing.Size(552, 20);
       this.textBox6.TabIndex = 9;
       // 
       // label1
@@ -682,18 +689,20 @@
       // 
       // archiveInfoGroup
       // 
+      this.archiveInfoGroup.AutoSize = true;
       this.archiveInfoGroup.Controls.Add(this.archiveTable);
       this.archiveInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveInfoGroup.Location = new System.Drawing.Point(1, 1);
       this.archiveInfoGroup.Margin = new System.Windows.Forms.Padding(1);
       this.archiveInfoGroup.Name = "archiveInfoGroup";
-      this.archiveInfoGroup.Size = new System.Drawing.Size(751, 127);
+      this.archiveInfoGroup.Size = new System.Drawing.Size(750, 127);
       this.archiveInfoGroup.TabIndex = 0;
       this.archiveInfoGroup.TabStop = false;
       this.archiveInfoGroup.Text = "Archive Information";
       // 
       // archiveTable
       // 
+      this.archiveTable.AutoSize = true;
       this.archiveTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.archiveTable.ColumnCount = 2;
       this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -712,7 +721,7 @@
       this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.archiveTable.Size = new System.Drawing.Size(745, 108);
+      this.archiveTable.Size = new System.Drawing.Size(744, 108);
       this.archiveTable.TabIndex = 0;
       // 
       // archiveName
@@ -720,9 +729,18 @@
       this.archiveName.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveName.Location = new System.Drawing.Point(189, 3);
       this.archiveName.Name = "archiveName";
-      this.archiveName.Size = new System.Drawing.Size(553, 20);
+      this.archiveName.Size = new System.Drawing.Size(552, 20);
       this.archiveName.TabIndex = 0;
       this.archiveName.TextChanged += new System.EventHandler(this.SetArchiveName);
+      // 
+      // updateURL
+      // 
+      this.updateURL.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.updateURL.Location = new System.Drawing.Point(189, 85);
+      this.updateURL.Name = "updateURL";
+      this.updateURL.Size = new System.Drawing.Size(552, 20);
+      this.updateURL.TabIndex = 2;
+      this.updateURL.TextChanged += new System.EventHandler(this.SetArchiveURL);
       // 
       // archiveNameLabel
       // 
@@ -746,6 +764,17 @@
       this.archiveDescLabel.Text = "Archive Description:";
       this.archiveDescLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
+      // archiveURLLabel
+      // 
+      this.archiveURLLabel.AutoSize = true;
+      this.archiveURLLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.archiveURLLabel.Location = new System.Drawing.Point(3, 82);
+      this.archiveURLLabel.Name = "archiveURLLabel";
+      this.archiveURLLabel.Size = new System.Drawing.Size(180, 26);
+      this.archiveURLLabel.TabIndex = 5;
+      this.archiveURLLabel.Text = "Update URL:";
+      this.archiveURLLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
       // archiveDesc
       // 
       this.archiveDesc.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -753,7 +782,7 @@
       this.archiveDesc.Multiline = true;
       this.archiveDesc.Name = "archiveDesc";
       this.archiveDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-      this.archiveDesc.Size = new System.Drawing.Size(553, 50);
+      this.archiveDesc.Size = new System.Drawing.Size(552, 50);
       this.archiveDesc.TabIndex = 1;
       this.archiveDesc.TextChanged += new System.EventHandler(this.SetArchiveDesc);
       // 
@@ -1149,26 +1178,6 @@
       // 
       this.saveArchiveDialog.DefaultExt = "sgca";
       // 
-      // archiveURLLabel
-      // 
-      this.archiveURLLabel.AutoSize = true;
-      this.archiveURLLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveURLLabel.Location = new System.Drawing.Point(3, 82);
-      this.archiveURLLabel.Name = "archiveURLLabel";
-      this.archiveURLLabel.Size = new System.Drawing.Size(180, 26);
-      this.archiveURLLabel.TabIndex = 5;
-      this.archiveURLLabel.Text = "Update URL:";
-      this.archiveURLLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      // 
-      // updateURL
-      // 
-      this.updateURL.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.updateURL.Location = new System.Drawing.Point(189, 85);
-      this.updateURL.Name = "updateURL";
-      this.updateURL.Size = new System.Drawing.Size(553, 20);
-      this.updateURL.TabIndex = 2;
-      this.updateURL.TextChanged += new System.EventHandler(this.SetArchiveURL);
-      // 
       // MainScreen
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1182,7 +1191,9 @@
       this.tabControl.ResumeLayout(false);
       this.generalTab.ResumeLayout(false);
       this.generalTable.ResumeLayout(false);
+      this.generalTable.PerformLayout();
       this.timeInfoGroup.ResumeLayout(false);
+      this.timeInfoGroup.PerformLayout();
       this.timeTable.ResumeLayout(false);
       this.timeTable.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.beforeAnswer)).EndInit();
@@ -1190,13 +1201,16 @@
       ((System.ComponentModel.ISupportInitialize)(this.delayScore)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.delayGO)).EndInit();
       this.soundInfoGroup.ResumeLayout(false);
+      this.soundInfoGroup.PerformLayout();
       this.soundTable.ResumeLayout(false);
       this.soundTable.PerformLayout();
       this.generalInfoGroup.ResumeLayout(false);
+      this.generalInfoGroup.PerformLayout();
       this.generalSTable.ResumeLayout(false);
       this.generalSTable.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.bkgImage)).EndInit();
       this.archiveInfoGroup.ResumeLayout(false);
+      this.archiveInfoGroup.PerformLayout();
       this.archiveTable.ResumeLayout(false);
       this.archiveTable.PerformLayout();
       this.questionsTab.ResumeLayout(false);
