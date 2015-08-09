@@ -54,18 +54,18 @@
       this.bkgImageLabel = new System.Windows.Forms.Label();
       this.bkgImage = new System.Windows.Forms.PictureBox();
       this.bkgColor = new System.Windows.Forms.TextBox();
-      this.textBox1 = new System.Windows.Forms.TextBox();
-      this.textBox2 = new System.Windows.Forms.TextBox();
-      this.textBox3 = new System.Windows.Forms.TextBox();
-      this.textBox4 = new System.Windows.Forms.TextBox();
-      this.textBox5 = new System.Windows.Forms.TextBox();
-      this.textBox6 = new System.Windows.Forms.TextBox();
-      this.label1 = new System.Windows.Forms.Label();
-      this.label2 = new System.Windows.Forms.Label();
-      this.label3 = new System.Windows.Forms.Label();
-      this.label4 = new System.Windows.Forms.Label();
-      this.label5 = new System.Windows.Forms.Label();
-      this.label6 = new System.Windows.Forms.Label();
+      this.winning = new System.Windows.Forms.TextBox();
+      this.losing = new System.Windows.Forms.TextBox();
+      this.tying = new System.Windows.Forms.TextBox();
+      this.won = new System.Windows.Forms.TextBox();
+      this.lost = new System.Windows.Forms.TextBox();
+      this.tied = new System.Windows.Forms.TextBox();
+      this.winingLabel = new System.Windows.Forms.Label();
+      this.losingLabel = new System.Windows.Forms.Label();
+      this.tyingLabel = new System.Windows.Forms.Label();
+      this.wonLabel = new System.Windows.Forms.Label();
+      this.lostLabel = new System.Windows.Forms.Label();
+      this.tiedLabel = new System.Windows.Forms.Label();
       this.archiveInfoGroup = new System.Windows.Forms.GroupBox();
       this.archiveTable = new System.Windows.Forms.TableLayoutPanel();
       this.archiveName = new System.Windows.Forms.TextBox();
@@ -503,18 +503,18 @@
       this.generalSTable.Controls.Add(this.bkgImageLabel, 0, 7);
       this.generalSTable.Controls.Add(this.bkgImage, 1, 7);
       this.generalSTable.Controls.Add(this.bkgColor, 1, 6);
-      this.generalSTable.Controls.Add(this.textBox1, 1, 0);
-      this.generalSTable.Controls.Add(this.textBox2, 1, 1);
-      this.generalSTable.Controls.Add(this.textBox3, 1, 2);
-      this.generalSTable.Controls.Add(this.textBox4, 1, 3);
-      this.generalSTable.Controls.Add(this.textBox5, 1, 4);
-      this.generalSTable.Controls.Add(this.textBox6, 1, 5);
-      this.generalSTable.Controls.Add(this.label1, 0, 0);
-      this.generalSTable.Controls.Add(this.label2, 0, 1);
-      this.generalSTable.Controls.Add(this.label3, 0, 2);
-      this.generalSTable.Controls.Add(this.label4, 0, 3);
-      this.generalSTable.Controls.Add(this.label5, 0, 4);
-      this.generalSTable.Controls.Add(this.label6, 0, 5);
+      this.generalSTable.Controls.Add(this.winning, 1, 0);
+      this.generalSTable.Controls.Add(this.losing, 1, 1);
+      this.generalSTable.Controls.Add(this.tying, 1, 2);
+      this.generalSTable.Controls.Add(this.won, 1, 3);
+      this.generalSTable.Controls.Add(this.lost, 1, 4);
+      this.generalSTable.Controls.Add(this.tied, 1, 5);
+      this.generalSTable.Controls.Add(this.winingLabel, 0, 0);
+      this.generalSTable.Controls.Add(this.losingLabel, 0, 1);
+      this.generalSTable.Controls.Add(this.tyingLabel, 0, 2);
+      this.generalSTable.Controls.Add(this.wonLabel, 0, 3);
+      this.generalSTable.Controls.Add(this.lostLabel, 0, 4);
+      this.generalSTable.Controls.Add(this.tiedLabel, 0, 5);
       this.generalSTable.Dock = System.Windows.Forms.DockStyle.Fill;
       this.generalSTable.Location = new System.Drawing.Point(3, 16);
       this.generalSTable.Margin = new System.Windows.Forms.Padding(0);
@@ -573,119 +573,125 @@
       this.bkgColor.TabIndex = 3;
       this.bkgColor.Click += new System.EventHandler(this.SelectBkgColor);
       // 
-      // textBox1
+      // winning
       // 
-      this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox1.Location = new System.Drawing.Point(189, 3);
-      this.textBox1.Name = "textBox1";
-      this.textBox1.Size = new System.Drawing.Size(552, 20);
-      this.textBox1.TabIndex = 4;
+      this.winning.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.winning.Location = new System.Drawing.Point(189, 3);
+      this.winning.Name = "winning";
+      this.winning.Size = new System.Drawing.Size(552, 20);
+      this.winning.TabIndex = 4;
+      this.winning.TextChanged += new System.EventHandler(this.SetWinning);
       // 
-      // textBox2
+      // losing
       // 
-      this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox2.Location = new System.Drawing.Point(189, 29);
-      this.textBox2.Name = "textBox2";
-      this.textBox2.Size = new System.Drawing.Size(552, 20);
-      this.textBox2.TabIndex = 5;
+      this.losing.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.losing.Location = new System.Drawing.Point(189, 29);
+      this.losing.Name = "losing";
+      this.losing.Size = new System.Drawing.Size(552, 20);
+      this.losing.TabIndex = 5;
+      this.losing.TextChanged += new System.EventHandler(this.SetLosing);
       // 
-      // textBox3
+      // tying
       // 
-      this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox3.Location = new System.Drawing.Point(189, 55);
-      this.textBox3.Name = "textBox3";
-      this.textBox3.Size = new System.Drawing.Size(552, 20);
-      this.textBox3.TabIndex = 6;
+      this.tying.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tying.Location = new System.Drawing.Point(189, 55);
+      this.tying.Name = "tying";
+      this.tying.Size = new System.Drawing.Size(552, 20);
+      this.tying.TabIndex = 6;
+      this.tying.TextChanged += new System.EventHandler(this.SetTying);
       // 
-      // textBox4
+      // won
       // 
-      this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox4.Location = new System.Drawing.Point(189, 81);
-      this.textBox4.Name = "textBox4";
-      this.textBox4.Size = new System.Drawing.Size(552, 20);
-      this.textBox4.TabIndex = 7;
+      this.won.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.won.Location = new System.Drawing.Point(189, 81);
+      this.won.Name = "won";
+      this.won.Size = new System.Drawing.Size(552, 20);
+      this.won.TabIndex = 7;
+      this.won.TextChanged += new System.EventHandler(this.SetWon);
       // 
-      // textBox5
+      // lost
       // 
-      this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox5.Location = new System.Drawing.Point(189, 107);
-      this.textBox5.Name = "textBox5";
-      this.textBox5.Size = new System.Drawing.Size(552, 20);
-      this.textBox5.TabIndex = 8;
+      this.lost.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.lost.Location = new System.Drawing.Point(189, 107);
+      this.lost.Name = "lost";
+      this.lost.Size = new System.Drawing.Size(552, 20);
+      this.lost.TabIndex = 8;
+      this.lost.TextChanged += new System.EventHandler(this.SetLost);
       // 
-      // textBox6
+      // tied
       // 
-      this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.textBox6.Location = new System.Drawing.Point(189, 133);
-      this.textBox6.Name = "textBox6";
-      this.textBox6.Size = new System.Drawing.Size(552, 20);
-      this.textBox6.TabIndex = 9;
+      this.tied.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tied.Location = new System.Drawing.Point(189, 133);
+      this.tied.Name = "tied";
+      this.tied.Size = new System.Drawing.Size(552, 20);
+      this.tied.TabIndex = 9;
+      this.tied.TextChanged += new System.EventHandler(this.SetTied);
       // 
-      // label1
+      // winingLabel
       // 
-      this.label1.AutoSize = true;
-      this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.label1.Location = new System.Drawing.Point(3, 0);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(180, 26);
-      this.label1.TabIndex = 10;
-      this.label1.Text = "label1";
-      this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.winingLabel.AutoSize = true;
+      this.winingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.winingLabel.Location = new System.Drawing.Point(3, 0);
+      this.winingLabel.Name = "winingLabel";
+      this.winingLabel.Size = new System.Drawing.Size(180, 26);
+      this.winingLabel.TabIndex = 10;
+      this.winingLabel.Text = "Winning Message:";
+      this.winingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
-      // label2
+      // losingLabel
       // 
-      this.label2.AutoSize = true;
-      this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.label2.Location = new System.Drawing.Point(3, 26);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(180, 26);
-      this.label2.TabIndex = 11;
-      this.label2.Text = "label2";
-      this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.losingLabel.AutoSize = true;
+      this.losingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.losingLabel.Location = new System.Drawing.Point(3, 26);
+      this.losingLabel.Name = "losingLabel";
+      this.losingLabel.Size = new System.Drawing.Size(180, 26);
+      this.losingLabel.TabIndex = 11;
+      this.losingLabel.Text = "Losing Message:";
+      this.losingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
-      // label3
+      // tyingLabel
       // 
-      this.label3.AutoSize = true;
-      this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.label3.Location = new System.Drawing.Point(3, 52);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(180, 26);
-      this.label3.TabIndex = 12;
-      this.label3.Text = "label3";
-      this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.tyingLabel.AutoSize = true;
+      this.tyingLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tyingLabel.Location = new System.Drawing.Point(3, 52);
+      this.tyingLabel.Name = "tyingLabel";
+      this.tyingLabel.Size = new System.Drawing.Size(180, 26);
+      this.tyingLabel.TabIndex = 12;
+      this.tyingLabel.Text = "Tying Message:";
+      this.tyingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
-      // label4
+      // wonLabel
       // 
-      this.label4.AutoSize = true;
-      this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.label4.Location = new System.Drawing.Point(3, 78);
-      this.label4.Name = "label4";
-      this.label4.Size = new System.Drawing.Size(180, 26);
-      this.label4.TabIndex = 13;
-      this.label4.Text = "label4";
-      this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.wonLabel.AutoSize = true;
+      this.wonLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.wonLabel.Location = new System.Drawing.Point(3, 78);
+      this.wonLabel.Name = "wonLabel";
+      this.wonLabel.Size = new System.Drawing.Size(180, 26);
+      this.wonLabel.TabIndex = 13;
+      this.wonLabel.Text = "Won Message:";
+      this.wonLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
-      // label5
+      // lostLabel
       // 
-      this.label5.AutoSize = true;
-      this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.label5.Location = new System.Drawing.Point(3, 104);
-      this.label5.Name = "label5";
-      this.label5.Size = new System.Drawing.Size(180, 26);
-      this.label5.TabIndex = 14;
-      this.label5.Text = "label5";
-      this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.lostLabel.AutoSize = true;
+      this.lostLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.lostLabel.Location = new System.Drawing.Point(3, 104);
+      this.lostLabel.Name = "lostLabel";
+      this.lostLabel.Size = new System.Drawing.Size(180, 26);
+      this.lostLabel.TabIndex = 14;
+      this.lostLabel.Text = "Lost Message:";
+      this.lostLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
-      // label6
+      // tiedLabel
       // 
-      this.label6.AutoSize = true;
-      this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.label6.Location = new System.Drawing.Point(3, 130);
-      this.label6.Name = "label6";
-      this.label6.Size = new System.Drawing.Size(180, 26);
-      this.label6.TabIndex = 15;
-      this.label6.Text = "label6";
-      this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.tiedLabel.AutoSize = true;
+      this.tiedLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.tiedLabel.Location = new System.Drawing.Point(3, 130);
+      this.tiedLabel.Name = "tiedLabel";
+      this.tiedLabel.Size = new System.Drawing.Size(180, 26);
+      this.tiedLabel.TabIndex = 15;
+      this.tiedLabel.Text = "Tied Message:";
+      this.tiedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
       // archiveInfoGroup
       // 
@@ -1312,18 +1318,18 @@
     private System.Windows.Forms.Button addTeam;
     private System.Windows.Forms.TableLayoutPanel teamsTable;
     private System.Windows.Forms.TreeView topicsTree;
-    private System.Windows.Forms.TextBox textBox1;
-    private System.Windows.Forms.TextBox textBox2;
-    private System.Windows.Forms.TextBox textBox3;
-    private System.Windows.Forms.TextBox textBox4;
-    private System.Windows.Forms.TextBox textBox5;
-    private System.Windows.Forms.TextBox textBox6;
-    private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.Label label2;
-    private System.Windows.Forms.Label label3;
-    private System.Windows.Forms.Label label4;
-    private System.Windows.Forms.Label label5;
-    private System.Windows.Forms.Label label6;
+    private System.Windows.Forms.TextBox winning;
+    private System.Windows.Forms.TextBox losing;
+    private System.Windows.Forms.TextBox tying;
+    private System.Windows.Forms.TextBox won;
+    private System.Windows.Forms.TextBox lost;
+    private System.Windows.Forms.TextBox tied;
+    private System.Windows.Forms.Label winingLabel;
+    private System.Windows.Forms.Label losingLabel;
+    private System.Windows.Forms.Label tyingLabel;
+    private System.Windows.Forms.Label wonLabel;
+    private System.Windows.Forms.Label lostLabel;
+    private System.Windows.Forms.Label tiedLabel;
     private System.Windows.Forms.TextBox updateURL;
     private System.Windows.Forms.Label archiveURLLabel;
   }
