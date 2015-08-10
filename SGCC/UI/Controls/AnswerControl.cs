@@ -9,14 +9,20 @@
     public Answer answerObj;
     public bool needDel;
 
-    public AnswerControl() {
-      answerObj = new Answer();
-      InitializeComponent();
-    }
+    public AnswerControl() : this(new Answer()) {}
 
     public AnswerControl(Answer ans) {
       answerObj = ans;
       InitializeComponent();
+      LoadFromData();
+    }
+
+    public void LoadFromData() {
+      answer.Text = answerObj.answer ?? "";
+      if(!string.IsNullOrWhiteSpace(answerObj.imageLoc)) {
+        answerPicture.Image = answerObj.image != null ? answerObj.image : Image.FromFile(answerObj.imageLoc);
+      }
+      correct.Checked = answerObj.correct;
     }
 
     private void imageClick(object sender, EventArgs e) {

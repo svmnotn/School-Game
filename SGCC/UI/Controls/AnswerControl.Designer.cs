@@ -30,7 +30,7 @@
       this.answerLabel = new System.Windows.Forms.Label();
       this.answer = new System.Windows.Forms.TextBox();
       this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-      this.button1 = new System.Windows.Forms.Button();
+      this.delButton = new System.Windows.Forms.Button();
       this.correct = new System.Windows.Forms.CheckBox();
       this.structureTable.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.answerPicture)).BeginInit();
@@ -127,7 +127,7 @@
       this.tableLayoutPanel1.ColumnCount = 2;
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
       this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.tableLayoutPanel1.Controls.Add(this.button1, 1, 0);
+      this.tableLayoutPanel1.Controls.Add(this.delButton, 1, 0);
       this.tableLayoutPanel1.Controls.Add(this.correct, 0, 0);
       this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
       this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 52);
@@ -137,16 +137,16 @@
       this.tableLayoutPanel1.Size = new System.Drawing.Size(293, 43);
       this.tableLayoutPanel1.TabIndex = 2;
       // 
-      // button1
+      // delButton
       // 
-      this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.button1.Location = new System.Drawing.Point(149, 3);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(141, 37);
-      this.button1.TabIndex = 0;
-      this.button1.Text = "Delete this answer";
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.delete);
+      this.delButton.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.delButton.Location = new System.Drawing.Point(149, 3);
+      this.delButton.Name = "delButton";
+      this.delButton.Size = new System.Drawing.Size(141, 37);
+      this.delButton.TabIndex = 0;
+      this.delButton.Text = "Delete this answer";
+      this.delButton.UseVisualStyleBackColor = true;
+      this.delButton.Click += new System.EventHandler(this.delete);
       // 
       // correct
       // 
@@ -188,7 +188,7 @@
     private System.Windows.Forms.Label answerLabel;
     private System.Windows.Forms.TextBox answer;
     private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button delButton;
     private System.Windows.Forms.CheckBox correct;
   }
 }

@@ -5,16 +5,20 @@
 
   public partial class TeamControl : UserControl {
     public Team teamObj;
-    public bool del;
+    public bool needDel;
 
-    public TeamControl() {
-      teamObj = new Team();
-      InitializeComponent();
-    }
+    public TeamControl() : this(new Team()) {}
 
     public TeamControl(Team team) {
       teamObj = team;
       InitializeComponent();
+      LoadFromData();
+    }
+
+    public void LoadFromData() {
+      name.Text = teamObj.name ?? "";
+      font.Text = teamObj.font != null ? teamObj.font.ToString() : "";
+      color.Text = teamObj.color != null ? teamObj.color.ToString() : "";
     }
 
     private void NameChange(object sender, EventArgs e) {
@@ -41,7 +45,7 @@
     }
 
     private void DeleteClick(object sender, EventArgs e) {
-      del = true;
+      needDel = true;
     }
   }
 }
