@@ -6,9 +6,11 @@ using System.Windows.Forms;
 
 namespace SchoolGame.SGCC.UI {
   using Data;
+  using Controls;
 
   public partial class MainScreen : Form {
-    Archive archive;
+    public Archive archive;
+    public Question currentQuestion;
 
     public MainScreen() : this(Archive.Default()) {}
 
@@ -30,7 +32,7 @@ namespace SchoolGame.SGCC.UI {
       ArchiveManager.SaveArchive(file, archive);
     }
 
-    void ShowOpenDialog(OpenFileDialog dialog, string title, CancelEventHandler eventH) {
+    void ShowOpenDialog(FileDialog dialog, string title, CancelEventHandler eventH) {
       dialog.Title = title;
       dialog.FileOk += eventH;
       dialog.ShowDialog();
@@ -45,10 +47,23 @@ namespace SchoolGame.SGCC.UI {
       LoadGeneralSettings();
       LoadSoundSettings();
       LoadTimeSettings();
+      // Load Question 
+      UpdateTopicTree();
+      // Load Teams
+      LoadTeams();
+    }
+
+    public void LoadTeams() {
+      teamsTable.Controls.Clear();
+      foreach(var t in archive.settings.teams) {
+        var c = new TeamControl(t);
+        c.Dock = DockStyle.Fill;
+        teamsTable.Controls.Add(c);
+      }
     }
 
       #region Set General Tab Data to Archive Info
-      public void LoadArchiveInfo() {
+    public void LoadArchiveInfo() {
         archiveName.Text = archive.name ?? "";
         archiveDesc.Text = archive.description ?? "";
         updateURL.Text = archive.updateURL ?? "";
@@ -63,7 +78,9 @@ namespace SchoolGame.SGCC.UI {
         tied.Text = archive.tiedMsg ?? "";
         bkgColor.Text = archive.settings.backgroundColor.ToString();
         if(!string.IsNullOrWhiteSpace(archive.settings.backgroundLoc)) {
-          bkgImage.Image = archive.settings.background != null ? archive.settings.background : Image.FromFile(archive.settings.backgroundLoc);
+          bkgImage.Image = archive.settings.background ?? Image.FromFile(archive.settings.backgroundLoc);
+        } else {
+          image.Image = null;
         }
       }
 
@@ -81,16 +98,60 @@ namespace SchoolGame.SGCC.UI {
         delayScore.Value = archive.settings.time.scoreDelay;
         delayGO.Value = archive.settings.time.gameOverDelay;
       }
-      #endregion
+    #endregion
 
+    public void UpdateTopicTree() {
+      topicsTree.BeginUpdate();
+      topicsTree.Nodes.Clear();
+      foreach(var t in archive.topics) {
+        var n = topicsTree.Nodes.Add(t.name, t.name);
+        foreach(var qList in t.questions.Values) {
+          foreach(var q in qList) {
+            var name = "[" + q.value + "] " + q.id;
+            n.Nodes.Add(name, name);
+          }
+        }
+      }
+      topicsTree.EndUpdate();
+      topicsTree.ExpandAll();
+    }
 
+    public void LoadQuestion() {
+      if(currentQuestion != null) {
+        question.Text = currentQuestion.question ?? "";
+        points.Value = currentQuestion.value;
+        if(!string.IsNullOrWhiteSpace(currentQuestion.imageLoc)) {
+          image.Image = currentQuestion.image ?? Image.FromFile(currentQuestion.imageLoc);
+        } else {
+          image.Image = null;
+        }
+        LoadAnswers();
+      }
+    }
+
+    public void LoadAnswers() {
+      if(currentQuestion != null) {
+        if(currentQuestion.answers != null) {
+          answersTable.Controls.Clear();
+          if(currentQuestion.answers.Count > 0) {
+            foreach(var ans in currentQuestion.answers) {
+              var c = new AnswerControl(ans);
+              c.Dock = DockStyle.Fill;
+              answersTable.Controls.Add(c);
+            }
+          }
+        } else {
+          currentQuestion.answers = new List<Answer>();
+        }
+      }
+    }
 
     #endregion
 
     #region Set Archive Data to user input
 
-      #region Set Images
-      private void SelectBkgImage(object sender, EventArgs e) {
+    #region Set Images
+    private void SelectBkgImage(object sender, EventArgs e) {
         ShowOpenDialog(openImage, "Select the Background Image", (object send, CancelEventArgs er) => archive.settings.backgroundLoc = ((OpenFileDialog)send).FileName);
         if(!string.IsNullOrWhiteSpace(archive.settings.backgroundLoc)) {
           archive.settings.background = Image.FromFile(archive.settings.backgroundLoc);
@@ -216,5 +277,128 @@ namespace SchoolGame.SGCC.UI {
     #endregion
 
     #endregion
+
+    string RemoveValue(TreeNode n) {
+      var txt = n.Text.Remove(n.Text.IndexOf('['), n.Text.IndexOf(']') + 1);
+      return txt.TrimStart();
+    }
+
+    string AddValue(TreeNode n, string extra) {
+      return n.Name.Remove(n.Name.IndexOf(']') + 1) + " " + extra;
+    }
+
+    bool IsQuestion(TreeNode n) {
+      return n.Name.StartsWith("[");
+    }
+
+    private void BeforeNodeNameChange(object sender, NodeLabelEditEventArgs e) {
+      if(IsQuestion(e.Node)) {
+        e.Node.Text = RemoveValue(e.Node);
+      }
+    }
+
+    private void AfterNodeNameChange(object sender, NodeLabelEditEventArgs e) {
+      if(IsQuestion(e.Node)) {
+        var txt = AddValue(e.Node, e.Label);
+        e.Node.Name = txt;
+        e.Node.Text = txt;
+      }
+    }
+
+    private void NodeClicked(object sender, TreeNodeMouseClickEventArgs e) {
+      if(IsQuestion(e.Node)) {
+        currentQuestion = archive.GetTopicFromName(e.Node.Parent.Name).GetQuestionFromID(RemoveValue(e.Node));
+        LoadQuestion();
+      } else {
+        currentQuestion = null;
+      }
+    }
+
+    private void AddTopic(object sender, EventArgs e) {
+      using(var dig = new InputDialog("Topic", "Please type the Topic's Title")) {
+        if(dig.ShowDialog(this) == DialogResult.OK) {
+          var topic = new Topic();
+          topic.name = dig.userInput.Text;
+          topic.questions = new Dictionary<int, List<Question>>();
+          archive.topics.Add(topic);
+          UpdateTopicTree();
+        }
+      }
+    }
+
+    private void RemoveTopic(object sender, EventArgs e) {
+      if(topicsTree.SelectedNode != null) {
+        if(topicsTree.SelectedNode.Parent == null) {
+          archive.topics.Remove(archive.GetTopicFromName(topicsTree.SelectedNode.Name));
+          UpdateTopicTree();
+        }
+      }
+    }
+
+    private void AddQuestion(object sender, EventArgs e) {
+      using(var dig = new InputDialog("Question", "Please type the Question's ID (This will only be shown in the Content Creator)")) {
+        if(dig.ShowDialog(this) == DialogResult.OK) {
+          if(topicsTree.SelectedNode != null) {
+            var q = new Question();
+            q.answers = new List<Answer>();
+            q.id = dig.userInput.Text;
+            if(topicsTree.SelectedNode.Parent == null) {
+              var t = archive.GetTopicFromName(topicsTree.SelectedNode.Name);
+              t.AddQuestion(q);
+            } else {
+              var t = archive.GetTopicFromName(topicsTree.SelectedNode.Parent.Name);
+              t.AddQuestion(q);
+            }
+            UpdateTopicTree();
+          }
+        }
+      }
+    }
+
+    private void RemoveQuestion(object sender, EventArgs e) {
+      if(topicsTree.SelectedNode != null) {
+        if(topicsTree.SelectedNode.Parent != null) {
+          archive.GetTopicFromName(topicsTree.SelectedNode.Parent.Name).RemoveQuestionByID(RemoveValue(topicsTree.SelectedNode));
+          UpdateTopicTree();
+        }
+      }
+    }
+
+    private void AddAnswer(object sender, EventArgs e) {
+      if(currentQuestion != null) {
+        if(currentQuestion.answers != null) {
+          currentQuestion.answers.Add(new Answer());
+          LoadAnswers();
+        }
+      }
+    }
+
+    private void SetQuestion(object sender, EventArgs e) {
+      if(currentQuestion != null) {
+        currentQuestion.question = question.Text;
+      }
+    }
+
+    private void SetPoints(object sender, EventArgs e) {
+      if(currentQuestion != null) {
+        var t = archive.GetTopicFromQuestion(currentQuestion);
+        t.ChangeValue(currentQuestion, (int)points.Value);
+        UpdateTopicTree();
+      }
+    }
+
+    private void SetImage(object sender, EventArgs e) {
+      if(currentQuestion != null) {
+        ShowOpenDialog(openImage, "Select the Question Image", (object send, CancelEventArgs er) => currentQuestion.imageLoc = ((OpenFileDialog)send).FileName);
+        if(!string.IsNullOrWhiteSpace(currentQuestion.imageLoc)) {
+          image.Image = currentQuestion.image ?? Image.FromFile(currentQuestion.imageLoc);
+        }
+      }
+    }
+
+    private void AddTeam(object sender, EventArgs e) {
+      archive.settings.teams.Add(new Team());
+      LoadTeams();
+    }
   }
 }

@@ -17,6 +17,24 @@
     [NonSerialized]
     public Settings settings;
 
+    public Topic GetTopicFromName(string name) {
+      foreach(var t in topics) {
+        if(t.name.Equals(name)) {
+          return t;
+        }
+      }
+      return null;
+    }
+
+    public Topic GetTopicFromQuestion(Question q) {
+      foreach(var t in topics) {
+        if(t.ContainsQuestion(q)) {
+          return t;
+        }
+      }
+      return null;
+    }
+
     public static Archive Default() {
       var tmp = new Archive();
       tmp.teamWinningMsg = "{team} is winning.";

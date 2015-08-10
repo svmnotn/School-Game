@@ -82,7 +82,7 @@
       this.addQuestion = new System.Windows.Forms.Button();
       this.removeCurrentTopic = new System.Windows.Forms.Button();
       this.removeCurrentQuestion = new System.Windows.Forms.Button();
-      this.topicsTree = new System.Windows.Forms.TreeView();
+      this.topicsTree = new SchoolGame.SGCC.UI.Controls.TreeLE();
       this.panel2Table = new System.Windows.Forms.TableLayoutPanel();
       this.questionInfoGroup = new System.Windows.Forms.GroupBox();
       this.panel2SubTable = new System.Windows.Forms.TableLayoutPanel();
@@ -104,6 +104,8 @@
       this.archivesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+      this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.colorDialog = new System.Windows.Forms.ColorDialog();
       this.openImage = new System.Windows.Forms.OpenFileDialog();
       this.openSound = new System.Windows.Forms.OpenFileDialog();
@@ -796,6 +798,7 @@
       // 
       this.questionsTab.Controls.Add(this.splitContainer);
       this.questionsTab.Location = new System.Drawing.Point(4, 22);
+      this.questionsTab.Margin = new System.Windows.Forms.Padding(0);
       this.questionsTab.Name = "questionsTab";
       this.questionsTab.Padding = new System.Windows.Forms.Padding(3);
       this.questionsTab.Size = new System.Drawing.Size(776, 511);
@@ -859,51 +862,63 @@
       // addTopic
       // 
       this.addTopic.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.addTopic.Location = new System.Drawing.Point(3, 3);
+      this.addTopic.Location = new System.Drawing.Point(0, 0);
+      this.addTopic.Margin = new System.Windows.Forms.Padding(0);
       this.addTopic.Name = "addTopic";
-      this.addTopic.Size = new System.Drawing.Size(121, 19);
+      this.addTopic.Size = new System.Drawing.Size(127, 25);
       this.addTopic.TabIndex = 0;
       this.addTopic.Text = "Add Topic";
       this.addTopic.UseVisualStyleBackColor = true;
+      this.addTopic.Click += new System.EventHandler(this.AddTopic);
       // 
       // addQuestion
       // 
       this.addQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.addQuestion.Location = new System.Drawing.Point(3, 28);
+      this.addQuestion.Location = new System.Drawing.Point(0, 25);
+      this.addQuestion.Margin = new System.Windows.Forms.Padding(0);
       this.addQuestion.Name = "addQuestion";
-      this.addQuestion.Size = new System.Drawing.Size(121, 20);
+      this.addQuestion.Size = new System.Drawing.Size(127, 26);
       this.addQuestion.TabIndex = 1;
       this.addQuestion.Text = "Add Question";
       this.addQuestion.UseVisualStyleBackColor = true;
+      this.addQuestion.Click += new System.EventHandler(this.AddQuestion);
       // 
       // removeCurrentTopic
       // 
       this.removeCurrentTopic.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.removeCurrentTopic.Location = new System.Drawing.Point(130, 3);
+      this.removeCurrentTopic.Location = new System.Drawing.Point(127, 0);
+      this.removeCurrentTopic.Margin = new System.Windows.Forms.Padding(0);
       this.removeCurrentTopic.Name = "removeCurrentTopic";
-      this.removeCurrentTopic.Size = new System.Drawing.Size(139, 19);
+      this.removeCurrentTopic.Size = new System.Drawing.Size(145, 25);
       this.removeCurrentTopic.TabIndex = 2;
       this.removeCurrentTopic.Text = "Remove Current Topic";
       this.removeCurrentTopic.UseVisualStyleBackColor = true;
+      this.removeCurrentTopic.Click += new System.EventHandler(this.RemoveTopic);
       // 
       // removeCurrentQuestion
       // 
       this.removeCurrentQuestion.Dock = System.Windows.Forms.DockStyle.Fill;
       this.removeCurrentQuestion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-      this.removeCurrentQuestion.Location = new System.Drawing.Point(130, 28);
+      this.removeCurrentQuestion.Location = new System.Drawing.Point(127, 25);
+      this.removeCurrentQuestion.Margin = new System.Windows.Forms.Padding(0);
       this.removeCurrentQuestion.Name = "removeCurrentQuestion";
-      this.removeCurrentQuestion.Size = new System.Drawing.Size(139, 20);
+      this.removeCurrentQuestion.Size = new System.Drawing.Size(145, 26);
       this.removeCurrentQuestion.TabIndex = 3;
       this.removeCurrentQuestion.Text = "Remove Current Question";
       this.removeCurrentQuestion.UseVisualStyleBackColor = true;
+      this.removeCurrentQuestion.Click += new System.EventHandler(this.RemoveQuestion);
       // 
       // topicsTree
       // 
       this.topicsTree.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.topicsTree.HideSelection = false;
       this.topicsTree.Location = new System.Drawing.Point(3, 3);
       this.topicsTree.Name = "topicsTree";
       this.topicsTree.Size = new System.Drawing.Size(266, 448);
       this.topicsTree.TabIndex = 1;
+      this.topicsTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.BeforeNodeNameChange);
+      this.topicsTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.AfterNodeNameChange);
+      this.topicsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.NodeClicked);
       // 
       // panel2Table
       // 
@@ -996,6 +1011,7 @@
       this.image.Size = new System.Drawing.Size(380, 131);
       this.image.TabIndex = 3;
       this.image.TabStop = false;
+      this.image.Click += new System.EventHandler(this.SetImage);
       // 
       // question
       // 
@@ -1008,6 +1024,7 @@
       this.question.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
       this.question.Size = new System.Drawing.Size(380, 39);
       this.question.TabIndex = 4;
+      this.question.TextChanged += new System.EventHandler(this.SetQuestion);
       // 
       // points
       // 
@@ -1022,14 +1039,16 @@
       this.points.Size = new System.Drawing.Size(378, 20);
       this.points.TabIndex = 5;
       this.points.ThousandsSeparator = true;
+      this.points.ValueChanged += new System.EventHandler(this.SetPoints);
       // 
       // answersGroup
       // 
       this.answersGroup.Controls.Add(this.answerTable);
       this.answersGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.answersGroup.Location = new System.Drawing.Point(3, 255);
+      this.answersGroup.Location = new System.Drawing.Point(0, 252);
+      this.answersGroup.Margin = new System.Windows.Forms.Padding(0);
       this.answersGroup.Name = "answersGroup";
-      this.answersGroup.Size = new System.Drawing.Size(488, 247);
+      this.answersGroup.Size = new System.Drawing.Size(494, 253);
       this.answersGroup.TabIndex = 1;
       this.answersGroup.TabStop = false;
       this.answersGroup.Text = "Answers";
@@ -1047,18 +1066,20 @@
       this.answerTable.RowCount = 2;
       this.answerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
       this.answerTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-      this.answerTable.Size = new System.Drawing.Size(482, 228);
+      this.answerTable.Size = new System.Drawing.Size(488, 234);
       this.answerTable.TabIndex = 0;
       // 
       // addAnswer
       // 
       this.addAnswer.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.addAnswer.Location = new System.Drawing.Point(3, 208);
+      this.addAnswer.Location = new System.Drawing.Point(0, 210);
+      this.addAnswer.Margin = new System.Windows.Forms.Padding(0);
       this.addAnswer.Name = "addAnswer";
-      this.addAnswer.Size = new System.Drawing.Size(476, 17);
+      this.addAnswer.Size = new System.Drawing.Size(488, 24);
       this.addAnswer.TabIndex = 0;
       this.addAnswer.Text = "Add Answer";
       this.addAnswer.UseVisualStyleBackColor = true;
+      this.addAnswer.Click += new System.EventHandler(this.AddAnswer);
       // 
       // answersTable
       // 
@@ -1067,11 +1088,11 @@
       this.answersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.answersTable.Dock = System.Windows.Forms.DockStyle.Fill;
       this.answersTable.Location = new System.Drawing.Point(0, 0);
-      this.answersTable.Margin = new System.Windows.Forms.Padding(0);
+      this.answersTable.Margin = new System.Windows.Forms.Padding(0, 0, 1, 0);
       this.answersTable.Name = "answersTable";
       this.answersTable.RowCount = 1;
-      this.answersTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 227F));
-      this.answersTable.Size = new System.Drawing.Size(482, 205);
+      this.answersTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.answersTable.Size = new System.Drawing.Size(487, 210);
       this.answersTable.TabIndex = 1;
       // 
       // teamsTab
@@ -1109,6 +1130,7 @@
       this.addTeam.TabIndex = 0;
       this.addTeam.Text = "Add Team";
       this.addTeam.UseVisualStyleBackColor = true;
+      this.addTeam.Click += new System.EventHandler(this.AddTeam);
       // 
       // teamsTable
       // 
@@ -1127,7 +1149,9 @@
       // mainMenu
       // 
       this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivesToolStripMenuItem});
+            this.archivesToolStripMenuItem,
+            this.saveToolStripMenuItem1,
+            this.reloadToolStripMenuItem});
       this.mainMenu.Location = new System.Drawing.Point(0, 0);
       this.mainMenu.Name = "mainMenu";
       this.mainMenu.Size = new System.Drawing.Size(784, 24);
@@ -1156,6 +1180,18 @@
       this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
       this.saveToolStripMenuItem.Text = "Save";
       this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveArchive);
+      // 
+      // saveToolStripMenuItem1
+      // 
+      this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
+      this.saveToolStripMenuItem1.Size = new System.Drawing.Size(43, 20);
+      this.saveToolStripMenuItem1.Text = "Save";
+      // 
+      // reloadToolStripMenuItem
+      // 
+      this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
+      this.reloadToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+      this.reloadToolStripMenuItem.Text = "Reload";
       // 
       // colorDialog
       // 
@@ -1317,7 +1353,6 @@
     private System.Windows.Forms.TableLayoutPanel teamTable;
     private System.Windows.Forms.Button addTeam;
     private System.Windows.Forms.TableLayoutPanel teamsTable;
-    private System.Windows.Forms.TreeView topicsTree;
     private System.Windows.Forms.TextBox winning;
     private System.Windows.Forms.TextBox losing;
     private System.Windows.Forms.TextBox tying;
@@ -1332,5 +1367,8 @@
     private System.Windows.Forms.Label tiedLabel;
     private System.Windows.Forms.TextBox updateURL;
     private System.Windows.Forms.Label archiveURLLabel;
+    private Controls.TreeLE topicsTree;
+    private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem1;
+    private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
   }
 }

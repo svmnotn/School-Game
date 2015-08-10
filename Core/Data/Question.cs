@@ -10,6 +10,6 @@
     [NonSerialized]
     public Image image;
     public string imageLoc;
-    public IList<Answer> answers;
+    public List<Answer> answers;
   }
 }

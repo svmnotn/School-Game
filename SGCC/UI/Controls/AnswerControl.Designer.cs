@@ -1,4 +1,4 @@
-﻿namespace SchoolGame.SGCC.UI {
+﻿namespace SchoolGame.SGCC.UI.Controls {
   partial class AnswerControl {
     /// <summary> 
     /// Required designer variable.

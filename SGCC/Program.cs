@@ -8,6 +8,7 @@ namespace SchoolGame.SGCC {
   using UI;
 
   static class Program {
+   public static MainScreen main;
     /// <summary>
     /// The main entry point for the application.
     /// </summary>
@@ -15,7 +16,8 @@ namespace SchoolGame.SGCC {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new MainScreen());
+      main = new MainScreen();
+      Application.Run(main);
     }
   }
 }

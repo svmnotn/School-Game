@@ -1,4 +1,4 @@
-﻿namespace SchoolGame.SGCC.UI {
+﻿namespace SchoolGame.SGCC.UI.Controls {
   using System;
   using System.ComponentModel;
   using System.Drawing;
@@ -7,7 +7,6 @@
 
   public partial class AnswerControl : UserControl {
     public Answer answerObj;
-    public bool needDel;
 
     public AnswerControl() : this(new Answer()) {}
 
@@ -20,7 +19,9 @@
     public void LoadFromData() {
       answer.Text = answerObj.answer ?? "";
       if(!string.IsNullOrWhiteSpace(answerObj.imageLoc)) {
-        answerPicture.Image = answerObj.image != null ? answerObj.image : Image.FromFile(answerObj.imageLoc);
+        answerPicture.Image = answerObj.image ?? Image.FromFile(answerObj.imageLoc);
+      } else {
+        answerPicture.Image = null;
       }
       correct.Checked = answerObj.correct;
     }
@@ -49,7 +50,8 @@
     }
 
     private void delete(object sender, EventArgs e) {
-      needDel = true;
+      Program.main.currentQuestion.answers.Remove(answerObj);
+      Program.main.LoadAnswers();
     }
   }
 }

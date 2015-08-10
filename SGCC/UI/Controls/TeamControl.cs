@@ -5,7 +5,6 @@
 
   public partial class TeamControl : UserControl {
     public Team teamObj;
-    public bool needDel;
 
     public TeamControl() : this(new Team()) {}
 
@@ -45,7 +44,8 @@
     }
 
     private void DeleteClick(object sender, EventArgs e) {
-      needDel = true;
+      Program.main.archive.settings.teams.Remove(teamObj);
+      Program.main.LoadTeams();
     }
   }
 }

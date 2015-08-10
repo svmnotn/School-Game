@@ -12,7 +12,7 @@
     public string backgroundLoc;
     public SoundSettings sound;
     public TimeSettings time;
-    public IList<Team> teams;
+    public List<Team> teams;
 
     public static Settings Default() {
       var tmp = new Settings();
