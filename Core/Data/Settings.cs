@@ -14,16 +14,28 @@
     public TimeSettings time;
     public List<Team> teams;
 
-    public static Settings Default() {
-      var tmp = new Settings();
-      tmp.teams = new List<Team>();
-      tmp.sound = new SoundSettings();
-      tmp.time = new TimeSettings();
-      tmp.time.beforeAnswer = 60;
-      tmp.time.afterAnswer = 5;
-      tmp.time.scoreDelay = 5;
-      tmp.time.gameOverDelay = 8;
-      return tmp;
+    public static Settings Default {
+      get {
+        var tmp = new Settings();
+        tmp.teams = new List<Team>();
+        var t = new Team();
+        t.name = "Blue Team";
+        t.color = Color.Blue;
+        t.font = SystemFonts.DefaultFont;
+        tmp.teams.Add(t);
+        t = new Team();
+        t.name = "Red Team";
+        t.color = Color.Red;
+        t.font = SystemFonts.DefaultFont;
+        tmp.teams.Add(t);
+        tmp.sound = new SoundSettings();
+        tmp.time = new TimeSettings();
+        tmp.time.beforeAnswer = 60;
+        tmp.time.afterAnswer = 5;
+        tmp.time.scoreDelay = 5;
+        tmp.time.gameOverDelay = 8;
+        return tmp;
+      }
     }
   }
 
