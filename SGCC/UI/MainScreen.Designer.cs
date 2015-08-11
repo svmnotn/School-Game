@@ -1172,26 +1172,28 @@
       this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
       this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
       this.loadToolStripMenuItem.Text = "Load";
-      this.loadToolStripMenuItem.Click += new System.EventHandler(this.LoadArchive);
+      this.loadToolStripMenuItem.Click += new System.EventHandler(this.LoadZipArchive);
       // 
       // saveToolStripMenuItem
       // 
       this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
       this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
       this.saveToolStripMenuItem.Text = "Save";
-      this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveArchive);
+      this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveZipArchive);
       // 
       // saveToolStripMenuItem1
       // 
       this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
       this.saveToolStripMenuItem1.Size = new System.Drawing.Size(43, 20);
       this.saveToolStripMenuItem1.Text = "Save";
+      this.saveToolStripMenuItem1.Click += new System.EventHandler(this.SaveArchive);
       // 
       // reloadToolStripMenuItem
       // 
       this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
       this.reloadToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
       this.reloadToolStripMenuItem.Text = "Reload";
+      this.reloadToolStripMenuItem.Click += new System.EventHandler(this.ReloadArchive);
       // 
       // colorDialog
       // 
@@ -1219,6 +1221,7 @@
       // saveArchiveDialog
       // 
       this.saveArchiveDialog.DefaultExt = "sgca";
+      this.saveArchiveDialog.Filter = "School Game Content Archive (*.sgca)|*.sgca";
       // 
       // MainScreen
       // 

@@ -11,7 +11,7 @@
     public Archive archive;
     public Question currentQuestion;
 
-    public MainScreen() : this(Archive.Default()) { }
+    public MainScreen() : this(Archive.Default) { }
 
     public MainScreen(Archive a) {
       InitializeComponent();
@@ -20,16 +20,29 @@
     }
 
     #region Menu Operations
-    private void LoadArchive(object sender, EventArgs e) {
-      string file = "";
-      ShowOpenDialog(openArchive, "Choose what Archive to load", ((object send, CancelEventArgs er) => file = ((OpenFileDialog)send).FileName));
-      archive = ArchiveManager.LoadArchive(file);
+    private void ReloadArchive(object sender, EventArgs e) {
+      archive = ArchiveManager.LoadArchiveFromDir(Program.DataPath);
     }
 
     private void SaveArchive(object sender, EventArgs e) {
+      ArchiveManager.SaveArchiveToDir(Program.DataPath, archive);
+    }
+
+    private void LoadZipArchive(object sender, EventArgs e) {
       string file = "";
-      saveArchiveDialog.FileOk += ((object send, CancelEventArgs er) => file = ((SaveFileDialog)send).FileName);
-      ArchiveManager.SaveArchive(file, archive);
+      ShowOpenDialog(openArchive, "Choose what Archive to load", ((object send, CancelEventArgs er) => file = ((OpenFileDialog)send).FileName));
+      archive = ArchiveManager.LoadArchiveFromFile(file, Program.DataPath);
+    }
+
+    private void SaveZipArchive(object sender, EventArgs e) {
+      string file = "";
+      CancelEventHandler m = ((object send, CancelEventArgs er) => file = ((SaveFileDialog)send).FileName);
+      saveArchiveDialog.FileOk += m;
+      saveArchiveDialog.ShowDialog();
+      saveArchiveDialog.FileOk -= m;
+      if(!string.IsNullOrWhiteSpace(file)) {
+        ArchiveManager.SaveArchiveToFile(file, archive, Program.TmpPath);
+      }
     }
     #endregion
 

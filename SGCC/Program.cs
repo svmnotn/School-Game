@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace SchoolGame.SGCC {
+﻿namespace SchoolGame.SGCC {
+  using System;
+  using System.IO;
+  using System.Windows.Forms;
+  using Data;
   using UI;
 
   static class Program {
-   public static MainScreen main;
+    public static MainScreen main;
+    public static string DataPath { get { return Application.StartupPath + @"\Data"; } }
+    public static string TmpPath { get { return Application.LocalUserAppDataPath + @"\tmp"; } }
     /// <summary>
     /// The main entry point for the application.
     /// </summary>
@@ -16,8 +16,16 @@ namespace SchoolGame.SGCC {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      main = new MainScreen();
+      main = new MainScreen(Setup());
       Application.Run(main);
+    }
+
+    static Archive Setup() {
+      if(!Directory.Exists(DataPath)) {
+        Directory.CreateDirectory(DataPath);
+        ArchiveManager.SaveArchiveToDir(DataPath, Archive.Default);
+      }
+      return ArchiveManager.LoadArchiveFromDir(DataPath);
     }
   }
 }
