@@ -74,6 +74,10 @@
       this.archiveDescLabel = new System.Windows.Forms.Label();
       this.archiveURLLabel = new System.Windows.Forms.Label();
       this.archiveDesc = new System.Windows.Forms.TextBox();
+      this.versionLabel = new System.Windows.Forms.Label();
+      this.version = new System.Windows.Forms.TextBox();
+      this.archiveImageLabel = new System.Windows.Forms.Label();
+      this.archiveImage = new System.Windows.Forms.PictureBox();
       this.questionsTab = new System.Windows.Forms.TabPage();
       this.splitContainer = new System.Windows.Forms.SplitContainer();
       this.nodeTable = new System.Windows.Forms.TableLayoutPanel();
@@ -101,6 +105,8 @@
       this.addTeam = new System.Windows.Forms.Button();
       this.teamsTable = new System.Windows.Forms.TableLayoutPanel();
       this.mainMenu = new System.Windows.Forms.MenuStrip();
+      this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.colorDialog = new System.Windows.Forms.ColorDialog();
@@ -109,12 +115,6 @@
       this.fontDialog = new System.Windows.Forms.FontDialog();
       this.openArchive = new System.Windows.Forms.OpenFileDialog();
       this.saveArchiveDialog = new System.Windows.Forms.SaveFileDialog();
-      this.versionLabel = new System.Windows.Forms.Label();
-      this.version = new System.Windows.Forms.TextBox();
-      this.archiveImageLabel = new System.Windows.Forms.Label();
-      this.archiveImage = new System.Windows.Forms.PictureBox();
-      this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tabControl.SuspendLayout();
       this.generalTab.SuspendLayout();
       this.generalTable.SuspendLayout();
@@ -131,6 +131,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.bkgImage)).BeginInit();
       this.archiveInfoGroup.SuspendLayout();
       this.archiveTable.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.archiveImage)).BeginInit();
       this.questionsTab.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
       this.splitContainer.Panel1.SuspendLayout();
@@ -148,7 +149,6 @@
       this.teamsTab.SuspendLayout();
       this.teamTable.SuspendLayout();
       this.mainMenu.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.archiveImage)).BeginInit();
       this.SuspendLayout();
       // 
       // tabControl
@@ -206,7 +206,7 @@
       this.timeInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
       this.timeInfoGroup.Location = new System.Drawing.Point(3, 766);
       this.timeInfoGroup.Name = "timeInfoGroup";
-      this.timeInfoGroup.Size = new System.Drawing.Size(746, 199);
+      this.timeInfoGroup.Size = new System.Drawing.Size(746, 175);
       this.timeInfoGroup.TabIndex = 3;
       this.timeInfoGroup.TabStop = false;
       this.timeInfoGroup.Text = "Time Settings";
@@ -241,7 +241,7 @@
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.timeTable.Size = new System.Drawing.Size(740, 180);
+      this.timeTable.Size = new System.Drawing.Size(740, 156);
       this.timeTable.TabIndex = 0;
       // 
       // timerFontLabel
@@ -305,7 +305,7 @@
       this.delayGOLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.delayGOLabel.Location = new System.Drawing.Point(3, 130);
       this.delayGOLabel.Name = "delayGOLabel";
-      this.delayGOLabel.Size = new System.Drawing.Size(179, 50);
+      this.delayGOLabel.Size = new System.Drawing.Size(179, 26);
       this.delayGOLabel.TabIndex = 5;
       this.delayGOLabel.Text = "Delay after Game Over:";
       this.delayGOLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -804,6 +804,48 @@
       this.archiveDesc.TabIndex = 1;
       this.archiveDesc.TextChanged += new System.EventHandler(this.SetArchiveDesc);
       // 
+      // versionLabel
+      // 
+      this.versionLabel.AutoSize = true;
+      this.versionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.versionLabel.Location = new System.Drawing.Point(3, 108);
+      this.versionLabel.Name = "versionLabel";
+      this.versionLabel.Size = new System.Drawing.Size(142, 26);
+      this.versionLabel.TabIndex = 6;
+      this.versionLabel.Text = "Version:";
+      this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // version
+      // 
+      this.version.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.version.Location = new System.Drawing.Point(151, 111);
+      this.version.Name = "version";
+      this.version.Size = new System.Drawing.Size(366, 20);
+      this.version.TabIndex = 7;
+      this.version.TextChanged += new System.EventHandler(this.SetArchiveVersion);
+      // 
+      // archiveImageLabel
+      // 
+      this.archiveImageLabel.AutoSize = true;
+      this.archiveImageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.archiveImageLabel.Location = new System.Drawing.Point(523, 0);
+      this.archiveImageLabel.Name = "archiveImageLabel";
+      this.archiveImageLabel.Size = new System.Drawing.Size(218, 26);
+      this.archiveImageLabel.TabIndex = 8;
+      this.archiveImageLabel.Text = "Archive Image";
+      this.archiveImageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // archiveImage
+      // 
+      this.archiveImage.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.archiveImage.Location = new System.Drawing.Point(523, 29);
+      this.archiveImage.Name = "archiveImage";
+      this.archiveTable.SetRowSpan(this.archiveImage, 3);
+      this.archiveImage.Size = new System.Drawing.Size(218, 102);
+      this.archiveImage.TabIndex = 9;
+      this.archiveImage.TabStop = false;
+      this.archiveImage.Click += new System.EventHandler(this.SelectArchiveImage);
+      // 
       // questionsTab
       // 
       this.questionsTab.Controls.Add(this.splitContainer);
@@ -1169,6 +1211,20 @@
       this.mainMenu.TabIndex = 1;
       this.mainMenu.Text = "mainMenu";
       // 
+      // importToolStripMenuItem
+      // 
+      this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+      this.importToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+      this.importToolStripMenuItem.Text = "Import";
+      this.importToolStripMenuItem.Click += new System.EventHandler(this.ImportArchive);
+      // 
+      // exportToolStripMenuItem
+      // 
+      this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+      this.exportToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+      this.exportToolStripMenuItem.Text = "Export";
+      this.exportToolStripMenuItem.Click += new System.EventHandler(this.ExportArchive);
+      // 
       // saveToolStripMenuItem1
       // 
       this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
@@ -1211,62 +1267,6 @@
       this.saveArchiveDialog.DefaultExt = "sgca";
       this.saveArchiveDialog.Filter = "School Game Content Archive (*.sgca)|*.sgca";
       // 
-      // versionLabel
-      // 
-      this.versionLabel.AutoSize = true;
-      this.versionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.versionLabel.Location = new System.Drawing.Point(3, 108);
-      this.versionLabel.Name = "versionLabel";
-      this.versionLabel.Size = new System.Drawing.Size(142, 26);
-      this.versionLabel.TabIndex = 6;
-      this.versionLabel.Text = "Version:";
-      this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      // 
-      // version
-      // 
-      this.version.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.version.Location = new System.Drawing.Point(151, 111);
-      this.version.Name = "version";
-      this.version.Size = new System.Drawing.Size(366, 20);
-      this.version.TabIndex = 7;
-      this.version.TextChanged += new System.EventHandler(this.SetArchiveVersion);
-      // 
-      // archiveImageLabel
-      // 
-      this.archiveImageLabel.AutoSize = true;
-      this.archiveImageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveImageLabel.Location = new System.Drawing.Point(523, 0);
-      this.archiveImageLabel.Name = "archiveImageLabel";
-      this.archiveImageLabel.Size = new System.Drawing.Size(218, 26);
-      this.archiveImageLabel.TabIndex = 8;
-      this.archiveImageLabel.Text = "Archive Image";
-      this.archiveImageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      // 
-      // archiveImage
-      // 
-      this.archiveImage.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveImage.Location = new System.Drawing.Point(523, 29);
-      this.archiveImage.Name = "archiveImage";
-      this.archiveTable.SetRowSpan(this.archiveImage, 3);
-      this.archiveImage.Size = new System.Drawing.Size(218, 102);
-      this.archiveImage.TabIndex = 9;
-      this.archiveImage.TabStop = false;
-      this.archiveImage.Click += new System.EventHandler(this.SelectArchiveImage);
-      // 
-      // exportToolStripMenuItem
-      // 
-      this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-      this.exportToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-      this.exportToolStripMenuItem.Text = "Export";
-      this.exportToolStripMenuItem.Click += new System.EventHandler(this.ExportArchive);
-      // 
-      // importToolStripMenuItem
-      // 
-      this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-      this.importToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-      this.importToolStripMenuItem.Text = "Import";
-      this.importToolStripMenuItem.Click += new System.EventHandler(this.ImportArchive);
-      // 
       // MainScreen
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1277,6 +1277,7 @@
       this.MainMenuStrip = this.mainMenu;
       this.Name = "MainScreen";
       this.Text = "School Game Content Creator";
+      this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OnClose);
       this.tabControl.ResumeLayout(false);
       this.generalTab.ResumeLayout(false);
       this.generalTable.ResumeLayout(false);
@@ -1302,6 +1303,7 @@
       this.archiveInfoGroup.PerformLayout();
       this.archiveTable.ResumeLayout(false);
       this.archiveTable.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.archiveImage)).EndInit();
       this.questionsTab.ResumeLayout(false);
       this.splitContainer.Panel1.ResumeLayout(false);
       this.splitContainer.Panel2.ResumeLayout(false);
@@ -1321,7 +1323,6 @@
       this.teamTable.ResumeLayout(false);
       this.mainMenu.ResumeLayout(false);
       this.mainMenu.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.archiveImage)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 

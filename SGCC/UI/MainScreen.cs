@@ -8,8 +8,9 @@
   using Data;
 
   internal partial class MainScreen : Form {
-    public Archive archive;
-    public Question currentQuestion;
+    internal Archive archive;
+    internal Question currentQuestion;
+    internal string CurrentTopic { get { return currentQuestion != null ? archive.GetTopicFromQuestion(currentQuestion).name : ""; } }
 
     public MainScreen() : this(Archive.Default) { }
 
@@ -66,7 +67,7 @@
       updateURL.Text = archive.updateURL ?? "";
       version.Text = archive.version ?? "";
       if(!string.IsNullOrWhiteSpace(archive.imageLoc)) {
-        archiveImage.Image = archive.image ?? Image.FromFile(archive.imageLoc);
+        archiveImage.Image = archive.image ?? Extensions.LoadImage(Program.DataPath, archive.imageLoc);
       } else {
         archiveImage.Image = null;
       }
@@ -81,7 +82,7 @@
       tied.Text = archive.tiedMsg ?? "";
       bkgColor.Text = archive.settings.backgroundColor.ToString();
       if(!string.IsNullOrWhiteSpace(archive.settings.backgroundLoc)) {
-        bkgImage.Image = archive.settings.background ?? Image.FromFile(archive.settings.backgroundLoc);
+        bkgImage.Image = archive.settings.background ?? Extensions.LoadImage(Program.DataPath, archive.settings.backgroundLoc);
       } else {
         bkgImage.Image = null;
       }
@@ -124,7 +125,7 @@
         question.Text = currentQuestion.question ?? "";
         points.Value = currentQuestion.value;
         if(!string.IsNullOrWhiteSpace(currentQuestion.imageLoc)) {
-          image.Image = currentQuestion.image ?? Image.FromFile(currentQuestion.imageLoc);
+          image.Image = currentQuestion.image ?? Extensions.LoadImage(Program.DataPath, currentQuestion.imageLoc);
         } else {
           image.Image = null;
         }
@@ -164,18 +165,18 @@
 
     #region Set Images
     private void SelectBkgImage(object sender, EventArgs e) {
-      ShowOpenDialog(openImage, "Select the Background Image", (object send, CancelEventArgs er) => archive.settings.backgroundLoc = ((OpenFileDialog)send).FileName);
+      ShowOpenDialog(openImage, "Select the Background Image", (object send, CancelEventArgs er) => archive.settings.backgroundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "BackgroundImage"));
       if(!string.IsNullOrWhiteSpace(archive.settings.backgroundLoc)) {
-        archive.settings.background = Image.FromFile(archive.settings.backgroundLoc);
+        archive.settings.background = Extensions.LoadImage(Program.DataPath, archive.settings.backgroundLoc);
         var obj = (PictureBox)sender;
         obj.Image = archive.settings.background;
       }
     }
 
     private void SelectArchiveImage(object sender, EventArgs e) {
-      ShowOpenDialog(openImage, "Select the Archive Image", (object send, CancelEventArgs er) => archive.imageLoc = ((OpenFileDialog)send).FileName);
+      ShowOpenDialog(openImage, "Select the Archive Image", (object send, CancelEventArgs er) => archive.imageLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "ArchiveImage"));
       if(!string.IsNullOrWhiteSpace(archive.imageLoc)) {
-        archive.image = Image.FromFile(archive.imageLoc);
+        archive.image = Extensions.LoadImage(Program.DataPath, archive.imageLoc);
         var obj = (PictureBox)sender;
         obj.Image = archive.image;
       }
@@ -184,8 +185,9 @@
     private void SetImage(object sender, EventArgs e) {
       if(currentQuestion != null) {
         ShowOpenDialog(openImage, "Select the Question Image", (object send, CancelEventArgs er) => currentQuestion.imageLoc = ((OpenFileDialog)send).FileName);
+        currentQuestion.imageLoc = Program.CopyTo(currentQuestion.imageLoc, Program.DataPath, CurrentTopic + '\\' + currentQuestion.id);
         if(!string.IsNullOrWhiteSpace(currentQuestion.imageLoc)) {
-          image.Image = currentQuestion.image ?? Image.FromFile(currentQuestion.imageLoc);
+          image.Image = currentQuestion.image ?? Extensions.LoadImage(Program.DataPath, currentQuestion.imageLoc);
         }
       }
     }
@@ -438,6 +440,10 @@
 
     bool IsQuestion(TreeNode n) {
       return n.Name.StartsWith("[");
+    }
+
+    private void OnClose(object sender, FormClosingEventArgs e) {
+      ArchiveManager.SaveArchiveToDir(Program.DataPath, archive);
     }
     #endregion
   }

@@ -6,7 +6,7 @@
   using Data;
 
   internal partial class AnswerControl : UserControl {
-    public Answer answerObj;
+    internal Answer answerObj;
 
     public AnswerControl() : this(new Answer()) {}
 
@@ -19,7 +19,7 @@
     public void LoadFromData() {
       answer.Text = answerObj.answer ?? "";
       if(!string.IsNullOrWhiteSpace(answerObj.imageLoc)) {
-        answerPicture.Image = answerObj.image ?? Image.FromFile(answerObj.imageLoc);
+        answerPicture.Image = answerObj.image ?? Extensions.LoadImage(Program.DataPath, answerObj.imageLoc);
       } else {
         answerPicture.Image = null;
       }
@@ -32,6 +32,7 @@
       d.Filter = "Image Files (*.bmp, *.jpg, *.jpeg)|*.bmp;*.jpg;*.jpeg";
       d.FileOk += (object send, CancelEventArgs er) => answerObj.imageLoc = ((OpenFileDialog)send).FileName;
       d.ShowDialog();
+      answerObj.imageLoc = Program.CopyTo(answerObj.imageLoc, Program.DataPath, Program.AnswerName);
       if(!string.IsNullOrWhiteSpace(answerObj.imageLoc)) {
         answerObj.image = Image.FromFile(answerObj.imageLoc);
         var obj = (PictureBox)sender;
