@@ -1,5 +1,6 @@
 ﻿namespace SchoolGame.Data {
   using System;
+  using System.Drawing;
   using System.Collections.Generic;
 
   public class Archive {
@@ -12,6 +13,10 @@
     public string teamWonMsg;
     public string teamLostMsg;
     public string tiedMsg;
+    public string version;
+    [NonSerialized]
+    public Image image;
+    public string imageLoc; 
     [NonSerialized]
     public IList<Topic> topics;
     [NonSerialized]
