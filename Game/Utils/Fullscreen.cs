@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿namespace SchoolGame.Game.Utils {
+  using System.Windows.Forms;
 
-namespace SchoolGame.Game.Utils {
   internal enum ScreenMode {
     Fullscreen,
     Normal
   }
+
   internal class Fullscreen {
     internal static void SwitchScreen(Form target, ScreenMode mode) {
       switch(mode) {

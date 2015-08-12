@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SchoolGame.Game {
@@ -16,8 +13,8 @@ namespace SchoolGame.Game {
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      main = new Splash();
-      Application.Run(main);
+      //main = new Splash();
+      //Application.Run(main);
     }
 
     internal static void Run(ProgressBar p) {
