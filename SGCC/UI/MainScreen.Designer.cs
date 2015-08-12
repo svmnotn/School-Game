@@ -101,9 +101,6 @@
       this.addTeam = new System.Windows.Forms.Button();
       this.teamsTable = new System.Windows.Forms.TableLayoutPanel();
       this.mainMenu = new System.Windows.Forms.MenuStrip();
-      this.archivesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.colorDialog = new System.Windows.Forms.ColorDialog();
@@ -112,6 +109,12 @@
       this.fontDialog = new System.Windows.Forms.FontDialog();
       this.openArchive = new System.Windows.Forms.OpenFileDialog();
       this.saveArchiveDialog = new System.Windows.Forms.SaveFileDialog();
+      this.versionLabel = new System.Windows.Forms.Label();
+      this.version = new System.Windows.Forms.TextBox();
+      this.archiveImageLabel = new System.Windows.Forms.Label();
+      this.archiveImage = new System.Windows.Forms.PictureBox();
+      this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.tabControl.SuspendLayout();
       this.generalTab.SuspendLayout();
       this.generalTable.SuspendLayout();
@@ -145,6 +148,7 @@
       this.teamsTab.SuspendLayout();
       this.teamTable.SuspendLayout();
       this.mainMenu.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.archiveImage)).BeginInit();
       this.SuspendLayout();
       // 
       // tabControl
@@ -200,9 +204,9 @@
       this.timeInfoGroup.BackColor = System.Drawing.Color.Transparent;
       this.timeInfoGroup.Controls.Add(this.timeTable);
       this.timeInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.timeInfoGroup.Location = new System.Drawing.Point(3, 740);
+      this.timeInfoGroup.Location = new System.Drawing.Point(3, 766);
       this.timeInfoGroup.Name = "timeInfoGroup";
-      this.timeInfoGroup.Size = new System.Drawing.Size(746, 175);
+      this.timeInfoGroup.Size = new System.Drawing.Size(746, 199);
       this.timeInfoGroup.TabIndex = 3;
       this.timeInfoGroup.TabStop = false;
       this.timeInfoGroup.Text = "Time Settings";
@@ -237,7 +241,7 @@
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.timeTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.timeTable.Size = new System.Drawing.Size(740, 156);
+      this.timeTable.Size = new System.Drawing.Size(740, 180);
       this.timeTable.TabIndex = 0;
       // 
       // timerFontLabel
@@ -301,7 +305,7 @@
       this.delayGOLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.delayGOLabel.Location = new System.Drawing.Point(3, 130);
       this.delayGOLabel.Name = "delayGOLabel";
-      this.delayGOLabel.Size = new System.Drawing.Size(179, 26);
+      this.delayGOLabel.Size = new System.Drawing.Size(179, 50);
       this.delayGOLabel.TabIndex = 5;
       this.delayGOLabel.Text = "Delay after Game Over:";
       this.delayGOLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -390,7 +394,7 @@
       this.soundInfoGroup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.soundInfoGroup.Controls.Add(this.soundTable);
       this.soundInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.soundInfoGroup.Location = new System.Drawing.Point(3, 637);
+      this.soundInfoGroup.Location = new System.Drawing.Point(3, 663);
       this.soundInfoGroup.Name = "soundInfoGroup";
       this.soundInfoGroup.Size = new System.Drawing.Size(746, 97);
       this.soundInfoGroup.TabIndex = 2;
@@ -486,7 +490,7 @@
       this.generalInfoGroup.AutoSize = true;
       this.generalInfoGroup.Controls.Add(this.generalSTable);
       this.generalInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.generalInfoGroup.Location = new System.Drawing.Point(1, 130);
+      this.generalInfoGroup.Location = new System.Drawing.Point(1, 156);
       this.generalInfoGroup.Margin = new System.Windows.Forms.Padding(1);
       this.generalInfoGroup.Name = "generalInfoGroup";
       this.generalInfoGroup.Size = new System.Drawing.Size(750, 503);
@@ -703,7 +707,7 @@
       this.archiveInfoGroup.Location = new System.Drawing.Point(1, 1);
       this.archiveInfoGroup.Margin = new System.Windows.Forms.Padding(1);
       this.archiveInfoGroup.Name = "archiveInfoGroup";
-      this.archiveInfoGroup.Size = new System.Drawing.Size(750, 127);
+      this.archiveInfoGroup.Size = new System.Drawing.Size(750, 153);
       this.archiveInfoGroup.TabIndex = 0;
       this.archiveInfoGroup.TabStop = false;
       this.archiveInfoGroup.Text = "Archive Information";
@@ -712,41 +716,47 @@
       // 
       this.archiveTable.AutoSize = true;
       this.archiveTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.archiveTable.ColumnCount = 2;
-      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+      this.archiveTable.ColumnCount = 3;
+      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
       this.archiveTable.Controls.Add(this.archiveName, 1, 0);
       this.archiveTable.Controls.Add(this.updateURL, 1, 2);
       this.archiveTable.Controls.Add(this.archiveNameLabel, 0, 0);
       this.archiveTable.Controls.Add(this.archiveDescLabel, 0, 1);
       this.archiveTable.Controls.Add(this.archiveURLLabel, 0, 2);
       this.archiveTable.Controls.Add(this.archiveDesc, 1, 1);
+      this.archiveTable.Controls.Add(this.versionLabel, 0, 3);
+      this.archiveTable.Controls.Add(this.version, 1, 3);
+      this.archiveTable.Controls.Add(this.archiveImageLabel, 2, 0);
+      this.archiveTable.Controls.Add(this.archiveImage, 2, 1);
       this.archiveTable.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveTable.Location = new System.Drawing.Point(3, 16);
       this.archiveTable.Margin = new System.Windows.Forms.Padding(0);
       this.archiveTable.Name = "archiveTable";
-      this.archiveTable.RowCount = 3;
+      this.archiveTable.RowCount = 4;
       this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.archiveTable.Size = new System.Drawing.Size(744, 108);
+      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
+      this.archiveTable.Size = new System.Drawing.Size(744, 134);
       this.archiveTable.TabIndex = 0;
       // 
       // archiveName
       // 
       this.archiveName.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveName.Location = new System.Drawing.Point(189, 3);
+      this.archiveName.Location = new System.Drawing.Point(151, 3);
       this.archiveName.Name = "archiveName";
-      this.archiveName.Size = new System.Drawing.Size(552, 20);
+      this.archiveName.Size = new System.Drawing.Size(366, 20);
       this.archiveName.TabIndex = 0;
       this.archiveName.TextChanged += new System.EventHandler(this.SetArchiveName);
       // 
       // updateURL
       // 
       this.updateURL.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.updateURL.Location = new System.Drawing.Point(189, 85);
+      this.updateURL.Location = new System.Drawing.Point(151, 85);
       this.updateURL.Name = "updateURL";
-      this.updateURL.Size = new System.Drawing.Size(552, 20);
+      this.updateURL.Size = new System.Drawing.Size(366, 20);
       this.updateURL.TabIndex = 2;
       this.updateURL.TextChanged += new System.EventHandler(this.SetArchiveURL);
       // 
@@ -756,7 +766,7 @@
       this.archiveNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveNameLabel.Location = new System.Drawing.Point(3, 0);
       this.archiveNameLabel.Name = "archiveNameLabel";
-      this.archiveNameLabel.Size = new System.Drawing.Size(180, 26);
+      this.archiveNameLabel.Size = new System.Drawing.Size(142, 26);
       this.archiveNameLabel.TabIndex = 3;
       this.archiveNameLabel.Text = "Archive Name:";
       this.archiveNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -767,7 +777,7 @@
       this.archiveDescLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveDescLabel.Location = new System.Drawing.Point(3, 26);
       this.archiveDescLabel.Name = "archiveDescLabel";
-      this.archiveDescLabel.Size = new System.Drawing.Size(180, 56);
+      this.archiveDescLabel.Size = new System.Drawing.Size(142, 56);
       this.archiveDescLabel.TabIndex = 4;
       this.archiveDescLabel.Text = "Archive Description:";
       this.archiveDescLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -778,7 +788,7 @@
       this.archiveURLLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveURLLabel.Location = new System.Drawing.Point(3, 82);
       this.archiveURLLabel.Name = "archiveURLLabel";
-      this.archiveURLLabel.Size = new System.Drawing.Size(180, 26);
+      this.archiveURLLabel.Size = new System.Drawing.Size(142, 26);
       this.archiveURLLabel.TabIndex = 5;
       this.archiveURLLabel.Text = "Update URL:";
       this.archiveURLLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -786,11 +796,11 @@
       // archiveDesc
       // 
       this.archiveDesc.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveDesc.Location = new System.Drawing.Point(189, 29);
+      this.archiveDesc.Location = new System.Drawing.Point(151, 29);
       this.archiveDesc.Multiline = true;
       this.archiveDesc.Name = "archiveDesc";
       this.archiveDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-      this.archiveDesc.Size = new System.Drawing.Size(552, 50);
+      this.archiveDesc.Size = new System.Drawing.Size(366, 50);
       this.archiveDesc.TabIndex = 1;
       this.archiveDesc.TextChanged += new System.EventHandler(this.SetArchiveDesc);
       // 
@@ -1149,7 +1159,8 @@
       // mainMenu
       // 
       this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivesToolStripMenuItem,
+            this.importToolStripMenuItem,
+            this.exportToolStripMenuItem,
             this.saveToolStripMenuItem1,
             this.reloadToolStripMenuItem});
       this.mainMenu.Location = new System.Drawing.Point(0, 0);
@@ -1157,29 +1168,6 @@
       this.mainMenu.Size = new System.Drawing.Size(784, 24);
       this.mainMenu.TabIndex = 1;
       this.mainMenu.Text = "mainMenu";
-      // 
-      // archivesToolStripMenuItem
-      // 
-      this.archivesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem,
-            this.saveToolStripMenuItem});
-      this.archivesToolStripMenuItem.Name = "archivesToolStripMenuItem";
-      this.archivesToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-      this.archivesToolStripMenuItem.Text = "Archive";
-      // 
-      // loadToolStripMenuItem
-      // 
-      this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-      this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-      this.loadToolStripMenuItem.Text = "Load";
-      this.loadToolStripMenuItem.Click += new System.EventHandler(this.LoadZipArchive);
-      // 
-      // saveToolStripMenuItem
-      // 
-      this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-      this.saveToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-      this.saveToolStripMenuItem.Text = "Save";
-      this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveZipArchive);
       // 
       // saveToolStripMenuItem1
       // 
@@ -1222,6 +1210,62 @@
       // 
       this.saveArchiveDialog.DefaultExt = "sgca";
       this.saveArchiveDialog.Filter = "School Game Content Archive (*.sgca)|*.sgca";
+      // 
+      // versionLabel
+      // 
+      this.versionLabel.AutoSize = true;
+      this.versionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.versionLabel.Location = new System.Drawing.Point(3, 108);
+      this.versionLabel.Name = "versionLabel";
+      this.versionLabel.Size = new System.Drawing.Size(142, 26);
+      this.versionLabel.TabIndex = 6;
+      this.versionLabel.Text = "Version:";
+      this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // version
+      // 
+      this.version.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.version.Location = new System.Drawing.Point(151, 111);
+      this.version.Name = "version";
+      this.version.Size = new System.Drawing.Size(366, 20);
+      this.version.TabIndex = 7;
+      this.version.TextChanged += new System.EventHandler(this.SetArchiveVersion);
+      // 
+      // archiveImageLabel
+      // 
+      this.archiveImageLabel.AutoSize = true;
+      this.archiveImageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.archiveImageLabel.Location = new System.Drawing.Point(523, 0);
+      this.archiveImageLabel.Name = "archiveImageLabel";
+      this.archiveImageLabel.Size = new System.Drawing.Size(218, 26);
+      this.archiveImageLabel.TabIndex = 8;
+      this.archiveImageLabel.Text = "Archive Image";
+      this.archiveImageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // archiveImage
+      // 
+      this.archiveImage.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.archiveImage.Location = new System.Drawing.Point(523, 29);
+      this.archiveImage.Name = "archiveImage";
+      this.archiveTable.SetRowSpan(this.archiveImage, 3);
+      this.archiveImage.Size = new System.Drawing.Size(218, 102);
+      this.archiveImage.TabIndex = 9;
+      this.archiveImage.TabStop = false;
+      this.archiveImage.Click += new System.EventHandler(this.SelectArchiveImage);
+      // 
+      // exportToolStripMenuItem
+      // 
+      this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
+      this.exportToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+      this.exportToolStripMenuItem.Text = "Export";
+      this.exportToolStripMenuItem.Click += new System.EventHandler(this.ExportArchive);
+      // 
+      // importToolStripMenuItem
+      // 
+      this.importToolStripMenuItem.Name = "importToolStripMenuItem";
+      this.importToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+      this.importToolStripMenuItem.Text = "Import";
+      this.importToolStripMenuItem.Click += new System.EventHandler(this.ImportArchive);
       // 
       // MainScreen
       // 
@@ -1277,6 +1321,7 @@
       this.teamTable.ResumeLayout(false);
       this.mainMenu.ResumeLayout(false);
       this.mainMenu.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.archiveImage)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -1288,9 +1333,6 @@
     private System.Windows.Forms.TabPage generalTab;
     private System.Windows.Forms.TabPage questionsTab;
     private System.Windows.Forms.MenuStrip mainMenu;
-    private System.Windows.Forms.ToolStripMenuItem archivesToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem loadToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     private System.Windows.Forms.TableLayoutPanel generalTable;
     private System.Windows.Forms.GroupBox timeInfoGroup;
     private System.Windows.Forms.GroupBox soundInfoGroup;
@@ -1373,5 +1415,11 @@
     private Controls.TreeLE topicsTree;
     private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem1;
     private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
+    private System.Windows.Forms.Label versionLabel;
+    private System.Windows.Forms.TextBox version;
+    private System.Windows.Forms.Label archiveImageLabel;
+    private System.Windows.Forms.PictureBox archiveImage;
+    private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
   }
 }

@@ -7,7 +7,7 @@
   using Controls;
   using Data;
 
-  public partial class MainScreen : Form {
+  internal partial class MainScreen : Form {
     public Archive archive;
     public Question currentQuestion;
 
@@ -28,13 +28,13 @@
       ArchiveManager.SaveArchiveToDir(Program.DataPath, archive);
     }
 
-    private void LoadZipArchive(object sender, EventArgs e) {
+    private void ImportArchive(object sender, EventArgs e) {
       string file = "";
       ShowOpenDialog(openArchive, "Choose what Archive to load", ((object send, CancelEventArgs er) => file = ((OpenFileDialog)send).FileName));
       archive = ArchiveManager.LoadArchiveFromFile(file, Program.DataPath);
     }
 
-    private void SaveZipArchive(object sender, EventArgs e) {
+    private void ExportArchive(object sender, EventArgs e) {
       string file = "";
       CancelEventHandler m = ((object send, CancelEventArgs er) => file = ((SaveFileDialog)send).FileName);
       saveArchiveDialog.FileOk += m;
@@ -64,6 +64,12 @@
       archiveName.Text = archive.name ?? "";
       archiveDesc.Text = archive.description ?? "";
       updateURL.Text = archive.updateURL ?? "";
+      version.Text = archive.version ?? "";
+      if(!string.IsNullOrWhiteSpace(archive.imageLoc)) {
+        archiveImage.Image = archive.image ?? Image.FromFile(archive.imageLoc);
+      } else {
+        archiveImage.Image = null;
+      }
     }
 
     public void LoadGeneralSettings() {
@@ -77,7 +83,7 @@
       if(!string.IsNullOrWhiteSpace(archive.settings.backgroundLoc)) {
         bkgImage.Image = archive.settings.background ?? Image.FromFile(archive.settings.backgroundLoc);
       } else {
-        image.Image = null;
+        bkgImage.Image = null;
       }
     }
 
@@ -166,6 +172,15 @@
       }
     }
 
+    private void SelectArchiveImage(object sender, EventArgs e) {
+      ShowOpenDialog(openImage, "Select the Archive Image", (object send, CancelEventArgs er) => archive.imageLoc = ((OpenFileDialog)send).FileName);
+      if(!string.IsNullOrWhiteSpace(archive.imageLoc)) {
+        archive.image = Image.FromFile(archive.imageLoc);
+        var obj = (PictureBox)sender;
+        obj.Image = archive.image;
+      }
+    }
+
     private void SetImage(object sender, EventArgs e) {
       if(currentQuestion != null) {
         ShowOpenDialog(openImage, "Select the Question Image", (object send, CancelEventArgs er) => currentQuestion.imageLoc = ((OpenFileDialog)send).FileName);
@@ -220,6 +235,11 @@
     private void SetTied(object sender, EventArgs e) {
       var obj = (TextBox)sender;
       archive.tiedMsg = obj.Text;
+    }
+
+    private void SetArchiveVersion(object sender, EventArgs e) {
+      var obj = (TextBox)sender;
+      archive.version = obj.Text;
     }
 
     private void SetQuestion(object sender, EventArgs e) {

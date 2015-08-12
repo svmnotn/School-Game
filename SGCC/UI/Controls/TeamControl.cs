@@ -3,7 +3,7 @@
   using System.Windows.Forms;
   using Data;
 
-  public partial class TeamControl : UserControl {
+  internal partial class TeamControl : UserControl {
     public Team teamObj;
 
     public TeamControl() : this(new Team()) {}

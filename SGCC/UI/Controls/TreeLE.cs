@@ -3,7 +3,7 @@ namespace SchoolGame.SGCC.UI.Controls {
   using System.Windows.Forms;
   using System.ComponentModel;
 
-  public class TreeLE : TreeView {
+  internal class TreeLE : TreeView {
 
     #region Component Designer generated code
 

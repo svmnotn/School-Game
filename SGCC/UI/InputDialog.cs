@@ -2,7 +2,7 @@
   using System;
   using System.Windows.Forms;
 
-  public partial class InputDialog : Form {
+  internal partial class InputDialog : Form {
 
     public InputDialog() : this("",""){}
 

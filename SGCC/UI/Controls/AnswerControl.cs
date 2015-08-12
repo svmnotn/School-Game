@@ -5,7 +5,7 @@
   using System.Windows.Forms;
   using Data;
 
-  public partial class AnswerControl : UserControl {
+  internal partial class AnswerControl : UserControl {
     public Answer answerObj;
 
     public AnswerControl() : this(new Answer()) {}
