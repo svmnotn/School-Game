@@ -1,11 +1,13 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace SchoolGame.Game {
+﻿namespace SchoolGame.Game {
+  using System;
+  using System.Windows.Forms;
   using UI;
 
   static class Program {
-    static Form main;
+    internal static string DataPath { get { return Application.StartupPath + @"\Data"; } }
+    internal static string TmpPath { get { return Application.LocalUserAppDataPath + @"\tmp"; } }
+    internal static Form main;
+
     /// <summary>
     /// The main entry point for the application.
     /// </summary>
