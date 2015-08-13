@@ -2,7 +2,6 @@
   using System;
   using System.Collections.Generic;
   using System.ComponentModel;
-  using System.Drawing;
   using System.Windows.Forms;
   using Controls;
   using Data;
@@ -12,7 +11,7 @@
     internal Question currentQuestion;
     internal string CurrentTopic { get { return currentQuestion != null ? archive.GetTopicFromQuestion(currentQuestion).name : ""; } }
 
-    public MainScreen() : this(Archive.Default) { }
+    public MainScreen() : this(Archive.Default) {}
 
     public MainScreen(Archive a) {
       InitializeComponent();
@@ -64,13 +63,10 @@
     public void LoadArchiveInfo() {
       archiveName.Text = archive.name ?? "";
       archiveDesc.Text = archive.description ?? "";
-      updateURL.Text = archive.updateURL ?? "";
       version.Text = archive.version ?? "";
-      if(!string.IsNullOrWhiteSpace(archive.imageLoc)) {
-        archiveImage.Image = archive.image ?? Extensions.LoadImage(Program.DataPath, archive.imageLoc);
-      } else {
-        archiveImage.Image = null;
-      }
+      author.Text = archive.author ?? "";
+      license.Text = archive.license ?? "";
+      updateURL.Text = archive.updateURL ?? "";
     }
 
     public void LoadGeneralSettings() {
@@ -173,15 +169,6 @@
       }
     }
 
-    private void SelectArchiveImage(object sender, EventArgs e) {
-      ShowOpenDialog(openImage, "Select the Archive Image", (object send, CancelEventArgs er) => archive.imageLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "ArchiveImage"));
-      if(!string.IsNullOrWhiteSpace(archive.imageLoc)) {
-        archive.image = Extensions.LoadImage(Program.DataPath, archive.imageLoc);
-        var obj = (PictureBox)sender;
-        obj.Image = archive.image;
-      }
-    }
-
     private void SetImage(object sender, EventArgs e) {
       if(currentQuestion != null) {
         ShowOpenDialog(openImage, "Select the Question Image", (object send, CancelEventArgs er) => currentQuestion.imageLoc = ((OpenFileDialog)send).FileName);
@@ -244,6 +231,16 @@
       archive.version = obj.Text;
     }
 
+    private void SetAuthor(object sender, EventArgs e) {
+      var obj = (TextBox)sender;
+      archive.author = obj.Text;
+    }
+
+    private void SetLicense(object sender, EventArgs e) {
+      var obj = (TextBox)sender;
+      archive.license = obj.Text;
+    }
+
     private void SetQuestion(object sender, EventArgs e) {
       if(currentQuestion != null) {
         currentQuestion.question = question.Text;
@@ -252,19 +249,19 @@
 
     #region Set Sounds
     private void SelectBkgSound(object sender, EventArgs e) {
-      ShowOpenDialog(openSound, "Select the Background Sound", (object send, CancelEventArgs er) => archive.settings.sound.backgroundSoundLoc = ((OpenFileDialog)send).FileName);
+      ShowOpenDialog(openSound, "Select the Background Sound", (object send, CancelEventArgs er) => archive.settings.sound.backgroundSoundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "Background"));
       var obj = (TextBox)sender;
       obj.Text = archive.settings.sound.backgroundSoundLoc;
     }
 
     private void SelectCorrectSound(object sender, EventArgs e) {
-      ShowOpenDialog(openSound, "Select the Correct Sound", (object send, CancelEventArgs er) => archive.settings.sound.correctSoundLoc = ((OpenFileDialog)send).FileName);
+      ShowOpenDialog(openSound, "Select the Correct Sound", (object send, CancelEventArgs er) => archive.settings.sound.correctSoundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "Correct"));
       var obj = (TextBox)sender;
       obj.Text = archive.settings.sound.correctSoundLoc;
     }
 
     private void SelectWrongSound(object sender, EventArgs e) {
-      ShowOpenDialog(openSound, "Select the Wrong Sound", (object send, CancelEventArgs er) => archive.settings.sound.wrongSoundLoc = ((OpenFileDialog)send).FileName);
+      ShowOpenDialog(openSound, "Select the Wrong Sound", (object send, CancelEventArgs er) => archive.settings.sound.wrongSoundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "Wrong"));
       var obj = (TextBox)sender;
       obj.Text = archive.settings.sound.wrongSoundLoc;
     }

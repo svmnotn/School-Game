@@ -69,15 +69,17 @@
       this.archiveInfoGroup = new System.Windows.Forms.GroupBox();
       this.archiveTable = new System.Windows.Forms.TableLayoutPanel();
       this.archiveName = new System.Windows.Forms.TextBox();
-      this.updateURL = new System.Windows.Forms.TextBox();
       this.archiveNameLabel = new System.Windows.Forms.Label();
       this.archiveDescLabel = new System.Windows.Forms.Label();
-      this.archiveURLLabel = new System.Windows.Forms.Label();
       this.archiveDesc = new System.Windows.Forms.TextBox();
+      this.archiveURLLabel = new System.Windows.Forms.Label();
+      this.updateURL = new System.Windows.Forms.TextBox();
       this.versionLabel = new System.Windows.Forms.Label();
       this.version = new System.Windows.Forms.TextBox();
-      this.archiveImageLabel = new System.Windows.Forms.Label();
-      this.archiveImage = new System.Windows.Forms.PictureBox();
+      this.author = new System.Windows.Forms.TextBox();
+      this.license = new System.Windows.Forms.TextBox();
+      this.authorLabel = new System.Windows.Forms.Label();
+      this.licenseLabel = new System.Windows.Forms.Label();
       this.questionsTab = new System.Windows.Forms.TabPage();
       this.splitContainer = new System.Windows.Forms.SplitContainer();
       this.nodeTable = new System.Windows.Forms.TableLayoutPanel();
@@ -86,7 +88,6 @@
       this.addQuestion = new System.Windows.Forms.Button();
       this.removeCurrentTopic = new System.Windows.Forms.Button();
       this.removeCurrentQuestion = new System.Windows.Forms.Button();
-      this.topicsTree = new SchoolGame.SGCC.UI.Controls.TreeLE();
       this.panel2Table = new System.Windows.Forms.TableLayoutPanel();
       this.questionInfoGroup = new System.Windows.Forms.GroupBox();
       this.panel2SubTable = new System.Windows.Forms.TableLayoutPanel();
@@ -115,6 +116,7 @@
       this.fontDialog = new System.Windows.Forms.FontDialog();
       this.openArchive = new System.Windows.Forms.OpenFileDialog();
       this.saveArchiveDialog = new System.Windows.Forms.SaveFileDialog();
+      this.topicsTree = new SchoolGame.SGCC.UI.Controls.TreeLE();
       this.tabControl.SuspendLayout();
       this.generalTab.SuspendLayout();
       this.generalTable.SuspendLayout();
@@ -131,7 +133,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.bkgImage)).BeginInit();
       this.archiveInfoGroup.SuspendLayout();
       this.archiveTable.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.archiveImage)).BeginInit();
       this.questionsTab.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
       this.splitContainer.Panel1.SuspendLayout();
@@ -204,7 +205,7 @@
       this.timeInfoGroup.BackColor = System.Drawing.Color.Transparent;
       this.timeInfoGroup.Controls.Add(this.timeTable);
       this.timeInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.timeInfoGroup.Location = new System.Drawing.Point(3, 766);
+      this.timeInfoGroup.Location = new System.Drawing.Point(3, 892);
       this.timeInfoGroup.Name = "timeInfoGroup";
       this.timeInfoGroup.Size = new System.Drawing.Size(746, 175);
       this.timeInfoGroup.TabIndex = 3;
@@ -394,7 +395,7 @@
       this.soundInfoGroup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.soundInfoGroup.Controls.Add(this.soundTable);
       this.soundInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.soundInfoGroup.Location = new System.Drawing.Point(3, 663);
+      this.soundInfoGroup.Location = new System.Drawing.Point(3, 789);
       this.soundInfoGroup.Name = "soundInfoGroup";
       this.soundInfoGroup.Size = new System.Drawing.Size(746, 97);
       this.soundInfoGroup.TabIndex = 2;
@@ -490,7 +491,7 @@
       this.generalInfoGroup.AutoSize = true;
       this.generalInfoGroup.Controls.Add(this.generalSTable);
       this.generalInfoGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.generalInfoGroup.Location = new System.Drawing.Point(1, 156);
+      this.generalInfoGroup.Location = new System.Drawing.Point(1, 282);
       this.generalInfoGroup.Margin = new System.Windows.Forms.Padding(1);
       this.generalInfoGroup.Name = "generalInfoGroup";
       this.generalInfoGroup.Size = new System.Drawing.Size(750, 503);
@@ -707,7 +708,7 @@
       this.archiveInfoGroup.Location = new System.Drawing.Point(1, 1);
       this.archiveInfoGroup.Margin = new System.Windows.Forms.Padding(1);
       this.archiveInfoGroup.Name = "archiveInfoGroup";
-      this.archiveInfoGroup.Size = new System.Drawing.Size(750, 153);
+      this.archiveInfoGroup.Size = new System.Drawing.Size(750, 279);
       this.archiveInfoGroup.TabIndex = 0;
       this.archiveInfoGroup.TabStop = false;
       this.archiveInfoGroup.Text = "Archive Information";
@@ -716,49 +717,43 @@
       // 
       this.archiveTable.AutoSize = true;
       this.archiveTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-      this.archiveTable.ColumnCount = 3;
-      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+      this.archiveTable.ColumnCount = 2;
+      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+      this.archiveTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 85F));
       this.archiveTable.Controls.Add(this.archiveName, 1, 0);
-      this.archiveTable.Controls.Add(this.updateURL, 1, 2);
       this.archiveTable.Controls.Add(this.archiveNameLabel, 0, 0);
       this.archiveTable.Controls.Add(this.archiveDescLabel, 0, 1);
-      this.archiveTable.Controls.Add(this.archiveURLLabel, 0, 2);
       this.archiveTable.Controls.Add(this.archiveDesc, 1, 1);
-      this.archiveTable.Controls.Add(this.versionLabel, 0, 3);
-      this.archiveTable.Controls.Add(this.version, 1, 3);
-      this.archiveTable.Controls.Add(this.archiveImageLabel, 2, 0);
-      this.archiveTable.Controls.Add(this.archiveImage, 2, 1);
+      this.archiveTable.Controls.Add(this.archiveURLLabel, 0, 5);
+      this.archiveTable.Controls.Add(this.updateURL, 1, 5);
+      this.archiveTable.Controls.Add(this.versionLabel, 0, 2);
+      this.archiveTable.Controls.Add(this.version, 1, 2);
+      this.archiveTable.Controls.Add(this.author, 1, 3);
+      this.archiveTable.Controls.Add(this.license, 1, 4);
+      this.archiveTable.Controls.Add(this.authorLabel, 0, 3);
+      this.archiveTable.Controls.Add(this.licenseLabel, 0, 4);
       this.archiveTable.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveTable.Location = new System.Drawing.Point(3, 16);
       this.archiveTable.Margin = new System.Windows.Forms.Padding(0);
       this.archiveTable.Name = "archiveTable";
-      this.archiveTable.RowCount = 4;
-      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
-      this.archiveTable.Size = new System.Drawing.Size(744, 134);
+      this.archiveTable.RowCount = 6;
+      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+      this.archiveTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
+      this.archiveTable.Size = new System.Drawing.Size(744, 260);
       this.archiveTable.TabIndex = 0;
       // 
       // archiveName
       // 
       this.archiveName.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveName.Location = new System.Drawing.Point(151, 3);
+      this.archiveName.Location = new System.Drawing.Point(114, 3);
       this.archiveName.Name = "archiveName";
-      this.archiveName.Size = new System.Drawing.Size(366, 20);
+      this.archiveName.Size = new System.Drawing.Size(627, 20);
       this.archiveName.TabIndex = 0;
       this.archiveName.TextChanged += new System.EventHandler(this.SetArchiveName);
-      // 
-      // updateURL
-      // 
-      this.updateURL.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.updateURL.Location = new System.Drawing.Point(151, 85);
-      this.updateURL.Name = "updateURL";
-      this.updateURL.Size = new System.Drawing.Size(366, 20);
-      this.updateURL.TabIndex = 2;
-      this.updateURL.TextChanged += new System.EventHandler(this.SetArchiveURL);
       // 
       // archiveNameLabel
       // 
@@ -766,7 +761,7 @@
       this.archiveNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveNameLabel.Location = new System.Drawing.Point(3, 0);
       this.archiveNameLabel.Name = "archiveNameLabel";
-      this.archiveNameLabel.Size = new System.Drawing.Size(142, 26);
+      this.archiveNameLabel.Size = new System.Drawing.Size(105, 26);
       this.archiveNameLabel.TabIndex = 3;
       this.archiveNameLabel.Text = "Archive Name:";
       this.archiveNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -777,40 +772,48 @@
       this.archiveDescLabel.Dock = System.Windows.Forms.DockStyle.Fill;
       this.archiveDescLabel.Location = new System.Drawing.Point(3, 26);
       this.archiveDescLabel.Name = "archiveDescLabel";
-      this.archiveDescLabel.Size = new System.Drawing.Size(142, 56);
+      this.archiveDescLabel.Size = new System.Drawing.Size(105, 130);
       this.archiveDescLabel.TabIndex = 4;
       this.archiveDescLabel.Text = "Archive Description:";
-      this.archiveDescLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // archiveDesc
+      // 
+      this.archiveDesc.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.archiveDesc.Location = new System.Drawing.Point(114, 29);
+      this.archiveDesc.Multiline = true;
+      this.archiveDesc.Name = "archiveDesc";
+      this.archiveDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+      this.archiveDesc.Size = new System.Drawing.Size(627, 124);
+      this.archiveDesc.TabIndex = 1;
+      this.archiveDesc.TextChanged += new System.EventHandler(this.SetArchiveDesc);
       // 
       // archiveURLLabel
       // 
       this.archiveURLLabel.AutoSize = true;
       this.archiveURLLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveURLLabel.Location = new System.Drawing.Point(3, 82);
+      this.archiveURLLabel.Location = new System.Drawing.Point(3, 234);
       this.archiveURLLabel.Name = "archiveURLLabel";
-      this.archiveURLLabel.Size = new System.Drawing.Size(142, 26);
+      this.archiveURLLabel.Size = new System.Drawing.Size(105, 26);
       this.archiveURLLabel.TabIndex = 5;
       this.archiveURLLabel.Text = "Update URL:";
       this.archiveURLLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
-      // archiveDesc
+      // updateURL
       // 
-      this.archiveDesc.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveDesc.Location = new System.Drawing.Point(151, 29);
-      this.archiveDesc.Multiline = true;
-      this.archiveDesc.Name = "archiveDesc";
-      this.archiveDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-      this.archiveDesc.Size = new System.Drawing.Size(366, 50);
-      this.archiveDesc.TabIndex = 1;
-      this.archiveDesc.TextChanged += new System.EventHandler(this.SetArchiveDesc);
+      this.updateURL.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.updateURL.Location = new System.Drawing.Point(114, 237);
+      this.updateURL.Name = "updateURL";
+      this.updateURL.Size = new System.Drawing.Size(627, 20);
+      this.updateURL.TabIndex = 2;
+      this.updateURL.TextChanged += new System.EventHandler(this.SetArchiveURL);
       // 
       // versionLabel
       // 
       this.versionLabel.AutoSize = true;
       this.versionLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.versionLabel.Location = new System.Drawing.Point(3, 108);
+      this.versionLabel.Location = new System.Drawing.Point(3, 156);
       this.versionLabel.Name = "versionLabel";
-      this.versionLabel.Size = new System.Drawing.Size(142, 26);
+      this.versionLabel.Size = new System.Drawing.Size(105, 26);
       this.versionLabel.TabIndex = 6;
       this.versionLabel.Text = "Version:";
       this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -818,33 +821,51 @@
       // version
       // 
       this.version.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.version.Location = new System.Drawing.Point(151, 111);
+      this.version.Location = new System.Drawing.Point(114, 159);
       this.version.Name = "version";
-      this.version.Size = new System.Drawing.Size(366, 20);
+      this.version.Size = new System.Drawing.Size(627, 20);
       this.version.TabIndex = 7;
       this.version.TextChanged += new System.EventHandler(this.SetArchiveVersion);
       // 
-      // archiveImageLabel
+      // author
       // 
-      this.archiveImageLabel.AutoSize = true;
-      this.archiveImageLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveImageLabel.Location = new System.Drawing.Point(523, 0);
-      this.archiveImageLabel.Name = "archiveImageLabel";
-      this.archiveImageLabel.Size = new System.Drawing.Size(218, 26);
-      this.archiveImageLabel.TabIndex = 8;
-      this.archiveImageLabel.Text = "Archive Image";
-      this.archiveImageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.author.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.author.Location = new System.Drawing.Point(114, 185);
+      this.author.Name = "author";
+      this.author.Size = new System.Drawing.Size(627, 20);
+      this.author.TabIndex = 8;
+      this.author.TextChanged += new System.EventHandler(this.SetAuthor);
       // 
-      // archiveImage
+      // license
       // 
-      this.archiveImage.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.archiveImage.Location = new System.Drawing.Point(523, 29);
-      this.archiveImage.Name = "archiveImage";
-      this.archiveTable.SetRowSpan(this.archiveImage, 3);
-      this.archiveImage.Size = new System.Drawing.Size(218, 102);
-      this.archiveImage.TabIndex = 9;
-      this.archiveImage.TabStop = false;
-      this.archiveImage.Click += new System.EventHandler(this.SelectArchiveImage);
+      this.license.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.license.Location = new System.Drawing.Point(114, 211);
+      this.license.Name = "license";
+      this.license.Size = new System.Drawing.Size(627, 20);
+      this.license.TabIndex = 9;
+      this.license.TextChanged += new System.EventHandler(this.SetLicense);
+      // 
+      // authorLabel
+      // 
+      this.authorLabel.AutoSize = true;
+      this.authorLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.authorLabel.Location = new System.Drawing.Point(3, 182);
+      this.authorLabel.Name = "authorLabel";
+      this.authorLabel.Size = new System.Drawing.Size(105, 26);
+      this.authorLabel.TabIndex = 10;
+      this.authorLabel.Text = "Author:";
+      this.authorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      // 
+      // licenseLabel
+      // 
+      this.licenseLabel.AutoSize = true;
+      this.licenseLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.licenseLabel.Location = new System.Drawing.Point(3, 208);
+      this.licenseLabel.Name = "licenseLabel";
+      this.licenseLabel.Size = new System.Drawing.Size(105, 26);
+      this.licenseLabel.TabIndex = 11;
+      this.licenseLabel.Text = "License:";
+      this.licenseLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
       // 
       // questionsTab
       // 
@@ -959,18 +980,6 @@
       this.removeCurrentQuestion.Text = "Remove Current Question";
       this.removeCurrentQuestion.UseVisualStyleBackColor = true;
       this.removeCurrentQuestion.Click += new System.EventHandler(this.RemoveQuestion);
-      // 
-      // topicsTree
-      // 
-      this.topicsTree.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.topicsTree.HideSelection = false;
-      this.topicsTree.Location = new System.Drawing.Point(3, 3);
-      this.topicsTree.Name = "topicsTree";
-      this.topicsTree.Size = new System.Drawing.Size(266, 448);
-      this.topicsTree.TabIndex = 1;
-      this.topicsTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.BeforeNodeNameChange);
-      this.topicsTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.AfterNodeNameChange);
-      this.topicsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.NodeClicked);
       // 
       // panel2Table
       // 
@@ -1267,6 +1276,18 @@
       this.saveArchiveDialog.DefaultExt = "sgca";
       this.saveArchiveDialog.Filter = "School Game Content Archive (*.sgca)|*.sgca";
       // 
+      // topicsTree
+      // 
+      this.topicsTree.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.topicsTree.HideSelection = false;
+      this.topicsTree.Location = new System.Drawing.Point(3, 3);
+      this.topicsTree.Name = "topicsTree";
+      this.topicsTree.Size = new System.Drawing.Size(266, 448);
+      this.topicsTree.TabIndex = 1;
+      this.topicsTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.BeforeNodeNameChange);
+      this.topicsTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.AfterNodeNameChange);
+      this.topicsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.NodeClicked);
+      // 
       // MainScreen
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1303,7 +1324,6 @@
       this.archiveInfoGroup.PerformLayout();
       this.archiveTable.ResumeLayout(false);
       this.archiveTable.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.archiveImage)).EndInit();
       this.questionsTab.ResumeLayout(false);
       this.splitContainer.Panel1.ResumeLayout(false);
       this.splitContainer.Panel2.ResumeLayout(false);
@@ -1418,9 +1438,11 @@
     private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
     private System.Windows.Forms.Label versionLabel;
     private System.Windows.Forms.TextBox version;
-    private System.Windows.Forms.Label archiveImageLabel;
-    private System.Windows.Forms.PictureBox archiveImage;
     private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
+    private System.Windows.Forms.TextBox author;
+    private System.Windows.Forms.TextBox license;
+    private System.Windows.Forms.Label authorLabel;
+    private System.Windows.Forms.Label licenseLabel;
   }
 }

@@ -10,6 +10,7 @@
     internal static string DataPath { get { return Application.StartupPath + @"\Data";} }
     internal static string TmpPath { get { return Application.LocalUserAppDataPath + @"\tmp";} }
     internal static string AnswerName { get { return main.CurrentTopic + '\\' + main.currentQuestion.id + "_answer" + (DateTime.Now - System.Diagnostics.Process.GetCurrentProcess().StartTime).Ticks;} }
+    
     /// <summary>
     /// The main entry point for the application.
     /// </summary>
@@ -31,7 +32,7 @@
 
     internal static string CopyTo(string from, string to, string newName) {
       var type = from.Split('.');
-      var name = newName + "." + type[type.Length - 1];
+      var name = newName + '.' + type[type.Length - 1];
       var newPath = to + '\\' + name;
       File.Copy(from, newPath, true);
       return name;
