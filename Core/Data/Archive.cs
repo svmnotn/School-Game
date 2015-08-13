@@ -1,11 +1,13 @@
 ﻿namespace SchoolGame.Data {
   using System;
-  using System.Drawing;
   using System.Collections.Generic;
 
   public class Archive {
     public string name;
     public string description;
+    public string version;
+    public string author;
+    public string license;
     public string updateURL;
     public string teamWinningMsg;
     public string tyingMsg;
@@ -13,10 +15,6 @@
     public string teamWonMsg;
     public string teamLostMsg;
     public string tiedMsg;
-    public string version;
-    [NonSerialized]
-    public Image image;
-    public string imageLoc; 
     [NonSerialized]
     public IList<Topic> topics;
     [NonSerialized]
@@ -45,6 +43,9 @@
         var tmp = new Archive();
         tmp.name = "Default Archive";
         tmp.description = "This is the Default that is automatically created when the SGCC is first run.";
+        tmp.version = "1.0.0";
+        tmp.author = "someone";
+        tmp.license = "Public Domain";
         tmp.teamWinningMsg = "{team} is winning.";
         tmp.teamLosingMsg = "{team} is losing.";
         tmp.tyingMsg = "{teams} are tied!";
