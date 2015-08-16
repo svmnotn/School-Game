@@ -21,11 +21,11 @@
 
     #region Menu Operations
     private void ReloadArchive(object sender, EventArgs e) {
-      archive = ArchiveManager.LoadArchiveFromDir(Program.DataPath);
+      archive = ArchiveManager.LoadArchiveFromDir(Program.WorkingDirectory);
     }
 
     private void SaveArchive(object sender, EventArgs e) {
-      ArchiveManager.SaveArchiveToDir(Program.DataPath, archive);
+      ArchiveManager.SaveArchiveToDir(Program.WorkingDirectory, archive);
     }
 
     private void ImportArchive(object sender, EventArgs e) {
@@ -78,7 +78,7 @@
       tied.Text = archive.tiedMsg ?? "";
       bkgColor.Text = archive.settings.backgroundColor.ToString();
       if(!string.IsNullOrWhiteSpace(archive.settings.backgroundLoc)) {
-        bkgImage.Image = archive.settings.background ?? Extensions.LoadImage(Program.DataPath, archive.settings.backgroundLoc);
+        bkgImage.Image = archive.settings.background ?? Extensions.LoadImage(Program.WorkingDirectory, archive.settings.backgroundLoc);
       } else {
         bkgImage.Image = null;
       }
@@ -121,7 +121,7 @@
         question.Text = currentQuestion.question ?? "";
         points.Value = currentQuestion.value;
         if(!string.IsNullOrWhiteSpace(currentQuestion.imageLoc)) {
-          image.Image = currentQuestion.image ?? Extensions.LoadImage(Program.DataPath, currentQuestion.imageLoc);
+          image.Image = currentQuestion.image ?? Extensions.LoadImage(Program.WorkingDirectory, currentQuestion.imageLoc);
         } else {
           image.Image = null;
         }
@@ -163,9 +163,9 @@
 
     #region Set Images
     private void SelectBkgImage(object sender, EventArgs e) {
-      ShowOpenDialog(openImage, "Select the Background Image", (object send, CancelEventArgs er) => archive.settings.backgroundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "BackgroundImage"));
+      ShowOpenDialog(openImage, "Select the Background Image", (object send, CancelEventArgs er) => archive.settings.backgroundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.WorkingDirectory, "BackgroundImage"));
       if(!string.IsNullOrWhiteSpace(archive.settings.backgroundLoc)) {
-        archive.settings.background = Extensions.LoadImage(Program.DataPath, archive.settings.backgroundLoc);
+        archive.settings.background = Extensions.LoadImage(Program.WorkingDirectory, archive.settings.backgroundLoc);
         var obj = (PictureBox)sender;
         obj.Image = archive.settings.background;
       }
@@ -174,9 +174,9 @@
     private void SetImage(object sender, EventArgs e) {
       if(currentQuestion != null) {
         ShowOpenDialog(openImage, "Select the Question Image", (object send, CancelEventArgs er) => currentQuestion.imageLoc = ((OpenFileDialog)send).FileName);
-        currentQuestion.imageLoc = Program.CopyTo(currentQuestion.imageLoc, Program.DataPath, CurrentTopic + '\\' + currentQuestion.id);
+        currentQuestion.imageLoc = Program.CopyTo(currentQuestion.imageLoc, Program.WorkingDirectory, CurrentTopic + '\\' + currentQuestion.id);
         if(!string.IsNullOrWhiteSpace(currentQuestion.imageLoc)) {
-          image.Image = currentQuestion.image ?? Extensions.LoadImage(Program.DataPath, currentQuestion.imageLoc);
+          image.Image = currentQuestion.image ?? Extensions.LoadImage(Program.WorkingDirectory, currentQuestion.imageLoc);
         }
       }
     }
@@ -251,19 +251,19 @@
 
     #region Set Sounds
     private void SelectBkgSound(object sender, EventArgs e) {
-      ShowOpenDialog(openSound, "Select the Background Sound", (object send, CancelEventArgs er) => archive.settings.sound.backgroundSoundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "Background"));
+      ShowOpenDialog(openSound, "Select the Background Sound", (object send, CancelEventArgs er) => archive.settings.sound.backgroundSoundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.WorkingDirectory, "Background"));
       var obj = (TextBox)sender;
       obj.Text = archive.settings.sound.backgroundSoundLoc;
     }
 
     private void SelectCorrectSound(object sender, EventArgs e) {
-      ShowOpenDialog(openSound, "Select the Correct Sound", (object send, CancelEventArgs er) => archive.settings.sound.correctSoundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "Correct"));
+      ShowOpenDialog(openSound, "Select the Correct Sound", (object send, CancelEventArgs er) => archive.settings.sound.correctSoundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.WorkingDirectory, "Correct"));
       var obj = (TextBox)sender;
       obj.Text = archive.settings.sound.correctSoundLoc;
     }
 
     private void SelectWrongSound(object sender, EventArgs e) {
-      ShowOpenDialog(openSound, "Select the Wrong Sound", (object send, CancelEventArgs er) => archive.settings.sound.wrongSoundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.DataPath, "Wrong"));
+      ShowOpenDialog(openSound, "Select the Wrong Sound", (object send, CancelEventArgs er) => archive.settings.sound.wrongSoundLoc = Program.CopyTo(((OpenFileDialog)send).FileName, Program.WorkingDirectory, "Wrong"));
       var obj = (TextBox)sender;
       obj.Text = archive.settings.sound.wrongSoundLoc;
     }
@@ -442,7 +442,7 @@
     }
 
     private void OnClose(object sender, FormClosingEventArgs e) {
-      ArchiveManager.SaveArchiveToDir(Program.DataPath, archive);
+      ArchiveManager.SaveArchiveToDir(Program.WorkingDirectory, archive);
     }
     #endregion
   }
