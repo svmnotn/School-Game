@@ -29,19 +29,16 @@
     }
 
     private void ImportArchive(object sender, EventArgs e) {
-      string file = "";
-      ShowOpenDialog(openArchive, "Choose what Archive to load", ((object send, CancelEventArgs er) => file = ((OpenFileDialog)send).FileName));
-      archive = ArchiveManager.LoadArchiveFromFile(file, Program.DataPath);
+      var res = openArchive.ShowDialog();
+      if(res == DialogResult.OK || res == DialogResult.Yes) {
+        archive = ArchiveManager.LoadArchiveFromFile(openArchive.OpenFile(), Program.WorkingDirectory);
+      }
     }
 
     private void ExportArchive(object sender, EventArgs e) {
-      string file = "";
-      CancelEventHandler m = ((object send, CancelEventArgs er) => file = ((SaveFileDialog)send).FileName);
-      saveArchiveDialog.FileOk += m;
-      saveArchiveDialog.ShowDialog();
-      saveArchiveDialog.FileOk -= m;
-      if(!string.IsNullOrWhiteSpace(file)) {
-        ArchiveManager.SaveArchiveToFile(file, archive, Program.TmpPath);
+      var res = saveArchiveDialog.ShowDialog();
+      if(res == DialogResult.OK || res == DialogResult.Yes) {
+        ArchiveManager.SaveArchiveToFile(saveArchiveDialog.FileName, archive, Program.TmpDirectory);
       }
     }
     #endregion
