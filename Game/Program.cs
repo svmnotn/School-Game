@@ -2,6 +2,7 @@
   using System;
   using System.Windows.Forms;
   using UI;
+  using Data;
 
   static class Program {
     internal static string DataPath { get { return Application.StartupPath + @"\Data"; } }

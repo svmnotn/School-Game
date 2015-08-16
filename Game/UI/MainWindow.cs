@@ -1,6 +1,7 @@
 ﻿namespace SchoolGame.Game.UI {
   using System;
   using System.Windows.Forms;
+  using Data;
 
   public partial class MainWindow : Form {
     public MainWindow() {
