@@ -4,9 +4,9 @@
 
   internal partial class InputDialog : Form {
 
-    public InputDialog() : this("",""){}
+    internal InputDialog() : this("", "") { }
 
-    public InputDialog(string title, string question) {
+    internal InputDialog(string title, string question) {
       InitializeComponent();
       AcceptButton = done;
       Text = title;

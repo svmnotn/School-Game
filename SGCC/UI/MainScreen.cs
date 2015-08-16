@@ -11,9 +11,9 @@
     internal Question currentQuestion;
     internal string CurrentTopic { get { return currentQuestion != null ? archive.GetTopicFromQuestion(currentQuestion).name : ""; } }
 
-    public MainScreen() : this(Archive.Default) {}
+    internal MainScreen() : this(Archive.Default) { }
 
-    public MainScreen(Archive a) {
+    internal MainScreen(Archive a) {
       InitializeComponent();
       archive = a;
       LoadData();
@@ -47,7 +47,7 @@
     #endregion
 
     #region Set UI from Archive
-    public void LoadData() {
+    internal void LoadData() {
       // Load General Page
       LoadArchiveInfo();
       LoadGeneralSettings();
@@ -60,7 +60,7 @@
     }
 
     #region Set General Tab Data to Archive Info
-    public void LoadArchiveInfo() {
+    internal void LoadArchiveInfo() {
       archiveName.Text = archive.name ?? "";
       archiveDesc.Text = archive.description ?? "";
       version.Text = archive.version ?? "";
@@ -69,7 +69,7 @@
       updateURL.Text = archive.updateURL ?? "";
     }
 
-    public void LoadGeneralSettings() {
+    internal void LoadGeneralSettings() {
       winning.Text = archive.teamWinningMsg ?? "";
       losing.Text = archive.teamLosingMsg ?? "";
       tying.Text = archive.tyingMsg ?? "";
@@ -84,13 +84,13 @@
       }
     }
 
-    public void LoadSoundSettings() {
+    internal void LoadSoundSettings() {
       bkgSound.Text = archive.settings.sound.backgroundSoundLoc ?? "";
       correctSound.Text = archive.settings.sound.correctSoundLoc ?? "";
       wrongSound.Text = archive.settings.sound.wrongSoundLoc ?? "";
     }
 
-    public void LoadTimeSettings() {
+    internal void LoadTimeSettings() {
       timerFont.Text = archive.settings.timerFont != null ? archive.settings.timerFont.ToString() : "";
       timerColor.Text = archive.settings.timerColor != null ? archive.settings.timerColor.ToString() : "";
       beforeAnswer.Value = archive.settings.time.beforeAnswer;
@@ -100,7 +100,7 @@
     }
     #endregion
 
-    public void UpdateTopicTree() {
+    internal void UpdateTopicTree() {
       topicsTree.BeginUpdate();
       topicsTree.Nodes.Clear();
       foreach(var t in archive.topics) {
@@ -116,7 +116,7 @@
       topicsTree.ExpandAll();
     }
 
-    public void LoadQuestion() {
+    internal void LoadQuestion() {
       if(currentQuestion != null) {
         question.Text = currentQuestion.question ?? "";
         points.Value = currentQuestion.value;
@@ -129,7 +129,7 @@
       }
     }
 
-    public void LoadAnswers() {
+    internal void LoadAnswers() {
       if(currentQuestion != null) {
         if(currentQuestion.answers != null) {
           answersTable.Controls.Clear();
@@ -147,7 +147,7 @@
       }
     }
 
-    public void LoadTeams() {
+    internal void LoadTeams() {
       teamsTable.Controls.Clear();
       teamsTable.RowStyles.Clear();
       foreach(var t in archive.settings.teams) {

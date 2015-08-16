@@ -4,17 +4,17 @@
   using Data;
 
   internal partial class TeamControl : UserControl {
-    public Team teamObj;
+    internal Team teamObj;
 
-    public TeamControl() : this(new Team()) {}
+    internal TeamControl() : this(new Team()) {}
 
-    public TeamControl(Team team) {
+    internal TeamControl(Team team) {
       teamObj = team;
       InitializeComponent();
       LoadFromData();
     }
 
-    public void LoadFromData() {
+    internal void LoadFromData() {
       name.Text = teamObj.name ?? "";
       font.Text = teamObj.font != null ? teamObj.font.ToString() : "";
       color.Text = teamObj.color != null ? teamObj.color.ToString() : "";
