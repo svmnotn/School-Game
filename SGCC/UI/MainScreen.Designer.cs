@@ -1269,12 +1269,10 @@
       // 
       // openImage
       // 
-      this.openImage.FileName = "openFileDialog1";
       this.openImage.Filter = "Image Files (*.bmp, *.jpg, *.jpeg)|*.bmp;*.jpg;*.jpeg";
       // 
       // openSound
       // 
-      this.openSound.FileName = "openFileDialog1";
       this.openSound.Filter = "Sound Files (*.wav)|*.wav";
       // 
       // fontDialog
@@ -1283,11 +1281,12 @@
       // 
       // openArchive
       // 
-      this.openArchive.FileName = "openFileDialog";
+      this.openArchive.Title = "Choose what Content Archive to edit";
       this.openArchive.Filter = "School Game Content Archive (*.sgca)|*.sgca";
       // 
       // saveArchiveDialog
       // 
+      this.saveArchiveDialog.Title = "Choose where to export your Content Archive";
       this.saveArchiveDialog.DefaultExt = "sgca";
       this.saveArchiveDialog.Filter = "School Game Content Archive (*.sgca)|*.sgca";
       // 
