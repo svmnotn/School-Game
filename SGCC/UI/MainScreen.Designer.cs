@@ -88,6 +88,7 @@
       this.addQuestion = new System.Windows.Forms.Button();
       this.removeCurrentTopic = new System.Windows.Forms.Button();
       this.removeCurrentQuestion = new System.Windows.Forms.Button();
+      this.topicsTree = new SchoolGame.SGCC.UI.Controls.TreeLE();
       this.panel2Table = new System.Windows.Forms.TableLayoutPanel();
       this.questionInfoGroup = new System.Windows.Forms.GroupBox();
       this.panel2SubTable = new System.Windows.Forms.TableLayoutPanel();
@@ -116,7 +117,6 @@
       this.fontDialog = new System.Windows.Forms.FontDialog();
       this.openArchive = new System.Windows.Forms.OpenFileDialog();
       this.saveArchiveDialog = new System.Windows.Forms.SaveFileDialog();
-      this.topicsTree = new SchoolGame.SGCC.UI.Controls.TreeLE();
       this.tabControl.SuspendLayout();
       this.generalTab.SuspendLayout();
       this.generalTable.SuspendLayout();
@@ -981,6 +981,18 @@
       this.removeCurrentQuestion.UseVisualStyleBackColor = true;
       this.removeCurrentQuestion.Click += new System.EventHandler(this.RemoveQuestion);
       // 
+      // topicsTree
+      // 
+      this.topicsTree.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.topicsTree.HideSelection = false;
+      this.topicsTree.Location = new System.Drawing.Point(3, 3);
+      this.topicsTree.Name = "topicsTree";
+      this.topicsTree.Size = new System.Drawing.Size(266, 448);
+      this.topicsTree.TabIndex = 1;
+      this.topicsTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.BeforeNodeNameChange);
+      this.topicsTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.AfterNodeNameChange);
+      this.topicsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.NodeClicked);
+      // 
       // panel2Table
       // 
       this.panel2Table.ColumnCount = 1;
@@ -1145,6 +1157,8 @@
       // answersTable
       // 
       this.answersTable.AutoScroll = true;
+      this.answersTable.AutoSize = true;
+      this.answersTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.answersTable.ColumnCount = 1;
       this.answersTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.answersTable.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1196,14 +1210,15 @@
       // teamsTable
       // 
       this.teamsTable.AutoScroll = true;
+      this.teamsTable.AutoSize = true;
+      this.teamsTable.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
       this.teamsTable.ColumnCount = 1;
       this.teamsTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
       this.teamsTable.Dock = System.Windows.Forms.DockStyle.Fill;
       this.teamsTable.Location = new System.Drawing.Point(3, 3);
       this.teamsTable.Name = "teamsTable";
       this.teamsTable.RowCount = 1;
-      this.teamsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 493F));
-      this.teamsTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 493F));
+      this.teamsTable.RowStyles.Add(new System.Windows.Forms.RowStyle());
       this.teamsTable.Size = new System.Drawing.Size(764, 448);
       this.teamsTable.TabIndex = 1;
       // 
@@ -1276,18 +1291,6 @@
       this.saveArchiveDialog.DefaultExt = "sgca";
       this.saveArchiveDialog.Filter = "School Game Content Archive (*.sgca)|*.sgca";
       // 
-      // topicsTree
-      // 
-      this.topicsTree.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.topicsTree.HideSelection = false;
-      this.topicsTree.Location = new System.Drawing.Point(3, 3);
-      this.topicsTree.Name = "topicsTree";
-      this.topicsTree.Size = new System.Drawing.Size(266, 448);
-      this.topicsTree.TabIndex = 1;
-      this.topicsTree.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.BeforeNodeNameChange);
-      this.topicsTree.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.AfterNodeNameChange);
-      this.topicsTree.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.NodeClicked);
-      // 
       // MainScreen
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1339,8 +1342,10 @@
       ((System.ComponentModel.ISupportInitialize)(this.points)).EndInit();
       this.answersGroup.ResumeLayout(false);
       this.answerTable.ResumeLayout(false);
+      this.answerTable.PerformLayout();
       this.teamsTab.ResumeLayout(false);
       this.teamTable.ResumeLayout(false);
+      this.teamTable.PerformLayout();
       this.mainMenu.ResumeLayout(false);
       this.mainMenu.PerformLayout();
       this.ResumeLayout(false);

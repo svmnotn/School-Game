@@ -133,6 +133,7 @@
       if(currentQuestion != null) {
         if(currentQuestion.answers != null) {
           answersTable.Controls.Clear();
+          answersTable.RowStyles.Clear();
           if(currentQuestion.answers.Count > 0) {
             foreach(var ans in currentQuestion.answers) {
               var c = new AnswerControl(ans);
@@ -148,6 +149,7 @@
 
     public void LoadTeams() {
       teamsTable.Controls.Clear();
+      teamsTable.RowStyles.Clear();
       foreach(var t in archive.settings.teams) {
         var c = new TeamControl(t);
         c.Dock = DockStyle.Fill;
