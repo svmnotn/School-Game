@@ -3,9 +3,19 @@
   using System.Windows.Forms;
   using Data;
 
-  public partial class MainWindow : Form {
-    public MainWindow() {
+  internal partial class MainWindow : Form {
+    Archive archive;
+
+    internal MainWindow() : this(Archive.Default) { }
+
+    internal MainWindow(Archive a) {
       InitializeComponent();
+      archive = a;
+      Text = a.name;
+      if(!string.IsNullOrWhiteSpace(a.settings.backgroundLoc)) {
+        BackgroundImage = a.settings.background ?? Extensions.LoadImage(Program.ArchivePath(a), a.settings.backgroundLoc);
+      }
+      BackColor = a.settings.backgroundColor;
     }
 
     private void OnTick(object sender, EventArgs e) {
