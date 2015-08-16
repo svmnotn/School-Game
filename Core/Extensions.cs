@@ -28,5 +28,19 @@
     public static Image LoadImage(string dataPath, string relativeLoc) {
       return Image.FromFile(dataPath + '\\' + relativeLoc);
     }
+
+    public static void ExtractToDirectory(this ZipArchive archive, string destinationDirectoryName, bool overwrite) {
+      if(!overwrite) {
+        archive.ExtractToDirectory(destinationDirectoryName);
+        return;
+      }
+      foreach(ZipArchiveEntry file in archive.Entries) {
+        string completeFileName = Path.Combine(destinationDirectoryName, file.FullName);
+        if(!Directory.Exists(Path.GetDirectoryName(completeFileName))) {
+          Directory.CreateDirectory(Path.GetDirectoryName(completeFileName));
+        }
+        file.ExtractToFile(completeFileName, true);
+      }
+    }
   }
 }
