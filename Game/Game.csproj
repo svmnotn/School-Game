@@ -98,6 +98,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\Controls\ArchiveControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\ArchiveControl.Designer.cs">
+      <DependentUpon>ArchiveControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Loader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +160,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\Controls\ArchiveControl.resx">
+      <DependentUpon>ArchiveControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Loader.resx">
       <DependentUpon>Loader.cs</DependentUpon>
     </EmbeddedResource>
