@@ -42,8 +42,12 @@
       }
     }
 
-    public static Archive LoadArchiveFromFile(string from, string dest) {
-      ZipFile.ExtractToDirectory(from, dest);
+    public static Archive LoadArchiveFromFile(Stream from, string dest) {
+      if(!Directory.Exists(dest)) {
+        Directory.CreateDirectory(dest);
+      }
+      var zip = new ZipArchive(from);
+      zip.ExtractToDirectory(dest, true);
       return LoadArchiveFromDir(dest);
     }
 
