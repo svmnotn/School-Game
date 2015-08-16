@@ -28,11 +28,11 @@
     }
 
     private void Play(object sender, EventArgs e) {
-
+      Program.loader.StartGame(archive);
     }
 
     private void Delete(object sender, EventArgs e) {
-
+      Directory.Delete(Program.ArchivePath(archive));
     }
   }
 }
