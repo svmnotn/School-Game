@@ -50,6 +50,7 @@
       // openArchive
       // 
       this.openArchive.Filter = "School Game Content Archive (*.sgca)|*.sgca";
+      //this.openArchive.Title = "Select the Content Archive to import";
       // 
       // archivesTable
       // 
