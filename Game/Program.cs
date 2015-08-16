@@ -5,9 +5,23 @@
   using Data;
 
   static class Program {
-    internal static string DataPath { get { return Application.StartupPath + @"\Data"; } }
-    internal static string TmpPath { get { return Application.LocalUserAppDataPath + @"\tmp"; } }
-    internal static Form main;
+    internal static string AppDirectory {
+      get {
+        return Extensions.CoreDirectory + @"\Game";
+      }
+    }
+    internal static string ArchivesDirectory {
+      get {
+        return AppDirectory + @"\Archives";
+      }
+    }
+    internal static string TmpDirectory {
+      get {
+        return AppDirectory + @"\tmp";
+      }
+    }
+    internal static Loader loader;
+    internal static MainWindow main;
 
     /// <summary>
     /// The main entry point for the application.
@@ -16,8 +30,12 @@
     static void Main() {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      main = new Loader();
-      Application.Run(main);
+      loader = new Loader();
+      Application.Run(loader);
+    }
+
+    internal static string ArchivePath(Archive a) {
+      return ArchivesDirectory + '\\' + a.name;
     }
   }
 }
